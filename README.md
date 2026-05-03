@@ -216,17 +216,10 @@ and are available from the corresponding author upon request.
 
 ## Citation
 
-If you use NuReg-XDoc, please cite the dataset and the
-accompanying paper. See `CITATION.cff` for canonical citation.
+If you use NuReg-XDoc, please cite the dataset using the entry
+below. See `CITATION.cff` for the canonical machine-readable form.
 
 ```bibtex
-@inproceedings{kim2026nuregxdoc,
-  title     = {NuReg-XDoc: A Cross-Doctype Regulatory QA Benchmark
-               with Document-Grounded Reasoning Paths for KG-Augmented RAG},
-  author    = {Kim, Bokyeong and Lee, Hyewon and Yu, Yonggyun},
-  booktitle = {Proceedings of the International Semantic Web Conference (ISWC)},
-  year      = {2026}
-}
 @dataset{kim2026nuregxdoc_data,
   author    = {Kim, Bokyeong and Lee, Hyewon and Yu, Yonggyun},
   title     = {NuReg-XDoc: A Cross-Doctype Regulatory QA Benchmark (v1.0.0)},

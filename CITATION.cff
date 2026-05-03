@@ -43,22 +43,6 @@ keywords:
   - nuclear safety
   - NRC
   - RAI
-preferred-citation:
-  type: conference-paper
-  title: "NuReg-XDoc: A Cross-Doctype Regulatory QA Benchmark with Document-Grounded Reasoning Paths for KG-Augmented RAG"
-  authors:
-    - family-names: Kim
-      given-names: Bokyeong
-      orcid: "https://orcid.org/0009-0006-6936-4584"
-    - family-names: Lee
-      given-names: Hyewon
-      orcid: "https://orcid.org/0009-0003-9573-2916"
-    - family-names: Yu
-      given-names: Yonggyun
-      orcid: "https://orcid.org/0000-0003-2863-9650"
-  conference:
-    name: "International Semantic Web Conference (ISWC)"
-  year: 2026
 identifiers:
   - type: doi
     value: "10.5281/zenodo.19915566"
