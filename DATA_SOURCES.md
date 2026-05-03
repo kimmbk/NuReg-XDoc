@@ -57,8 +57,9 @@ numbering scheme to support unambiguous lookup.
 The artifacts in this deposit (`nureg-xdoc-queries.json`, the
 reference graph TTL/CSV files, and `build_graph.py`) are derived
 works produced by the authors. They are released under the
-licenses stated in `LICENSE-DATA` (CC BY 4.0) and `LICENSE`
-(MIT).
+following licenses: dataset and metadata under CC BY 4.0
+(https://creativecommons.org/licenses/by/4.0/), and source code
+under the MIT License (see `LICENSE`).
 
 ## Generation pipeline
 
