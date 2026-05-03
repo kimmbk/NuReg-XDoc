@@ -1,0 +1,1552 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix rrg:  <https://regrag.org/ontology#> .
+
+# -----------------------------------------------------------------------------
+# Ontology header
+# -----------------------------------------------------------------------------
+<https://regrag.org/ontology> a owl:Ontology ;
+    rdfs:label "NuReg-XDoc Document-Level Reference Knowledge Graph Ontology" ;
+    owl:versionInfo "1.0" ;
+    rdfs:comment "Minimal OWL schema for a document-level regulatory reference KG. Nodes are regulatory documents; edges are typed inter-document references licensed by explicit clauses in the source documents." .
+
+# -----------------------------------------------------------------------------
+# Classes
+# -----------------------------------------------------------------------------
+rrg:RegulatoryDocument a owl:Class ;
+    rdfs:label "Regulatory Document" ;
+    rdfs:comment "A single regulatory document participating in the KG." .
+
+# -----------------------------------------------------------------------------
+# Datatype properties on RegulatoryDocument
+# -----------------------------------------------------------------------------
+rrg:docType a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain rrg:RegulatoryDocument ;
+    rdfs:range [
+        a rdfs:Datatype ;
+        owl:onDatatype xsd:string ;
+        owl:oneOf ( "10CFR" "SRP" "DSRS" "RG" )
+    ] ;
+    rdfs:label "document type" ;
+    rdfs:comment "Enumerated doctype: one of {10CFR, SRP, DSRS, RG}." .
+
+rrg:queryCount a owl:DatatypeProperty ;
+    rdfs:domain rrg:RegulatoryDocument ;
+    rdfs:range xsd:nonNegativeInteger ;
+    rdfs:label "query count" ;
+    rdfs:comment "Number of benchmark queries whose evidence chain touches this document." .
+
+# -----------------------------------------------------------------------------
+# Object properties: typed inter-document references
+# rrg:references is the superproperty; the three typed sub-properties are
+# licensed by distinct clause patterns in the source documents.
+# -----------------------------------------------------------------------------
+rrg:references a owl:ObjectProperty ;
+    rdfs:domain rrg:RegulatoryDocument ;
+    rdfs:range rrg:RegulatoryDocument ;
+    rdfs:label "references" ;
+    rdfs:comment "Asserts a typed inter-document reference between regulatory documents." .
+
+rrg:normativeBasis a owl:ObjectProperty ;
+    rdfs:subPropertyOf rrg:references ;
+    rdfs:label "normative basis" ;
+    rdfs:comment "Licensed by compliance clauses (e.g., 'shall comply with ...'). Review or methodology document to legal authority." .
+
+rrg:methodologyGuidance a owl:ObjectProperty ;
+    rdfs:subPropertyOf rrg:references ;
+    rdfs:label "methodology guidance" ;
+    rdfs:comment "Licensed by acceptable-method clauses (e.g., 'an acceptable method is ...'). Review document to methodology document." .
+
+rrg:lateralCrossReference a owl:ObjectProperty ;
+    rdfs:subPropertyOf rrg:references ;
+    rdfs:label "lateral cross-reference" ;
+    rdfs:comment "Licensed by 'see also' clauses. Between sections of the same role." .
+
+# -----------------------------------------------------------------------------
+# Edge weight (on reified statements)
+# -----------------------------------------------------------------------------
+rrg:weight a owl:DatatypeProperty ;
+    rdfs:domain rdf:Statement ;
+    rdfs:range xsd:positiveInteger ;
+    rdfs:label "edge weight" ;
+    rdfs:comment "Number of evidence chains that traverse the reified (src, pred, dst) edge." .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix rrg:  <https://regrag.org/ontology#> .
+@prefix doc:  <https://regrag.org/doc/> .
+
+# Instance graph - imports the NuReg-XDoc ontology.
+<https://regrag.org/instances> a owl:Ontology ;
+    owl:imports <https://regrag.org/ontology> ;
+    rdfs:label "NuReg-XDoc KG instance data (v1.0.0)" .
+
+# -----------------------------------------------------------------------------
+# Regulatory document nodes (135 instances)
+# -----------------------------------------------------------------------------
+doc:10_CFR_Part_50 a rrg:RegulatoryDocument ;
+    rdfs:label "10 CFR Part 50" ;
+    rrg:docType "10CFR" ;
+    rrg:queryCount 878 .
+
+doc:DSRS_10-2-3_section_fallback a rrg:RegulatoryDocument ;
+    rdfs:label "DSRS 10.2.3 (section fallback)" ;
+    rrg:docType "DSRS" ;
+    rrg:queryCount 4 .
+
+doc:DSRS_11-1 a rrg:RegulatoryDocument ;
+    rdfs:label "DSRS 11.1" ;
+    rrg:docType "DSRS" ;
+    rrg:queryCount 15 .
+
+doc:DSRS_11-2 a rrg:RegulatoryDocument ;
+    rdfs:label "DSRS 11.2" ;
+    rrg:docType "DSRS" ;
+    rrg:queryCount 1 .
+
+doc:DSRS_12-2 a rrg:RegulatoryDocument ;
+    rdfs:label "DSRS 12.2" ;
+    rrg:docType "DSRS" ;
+    rrg:queryCount 39 .
+
+doc:DSRS_14-2 a rrg:RegulatoryDocument ;
+    rdfs:label "DSRS 14.2" ;
+    rrg:docType "DSRS" ;
+    rrg:queryCount 5 .
+
+doc:DSRS_15-1-5_section_fallback a rrg:RegulatoryDocument ;
+    rdfs:label "DSRS 15.1.5 (section fallback)" ;
+    rrg:docType "DSRS" ;
+    rrg:queryCount 3 .
+
+doc:DSRS_15-2-6_section_fallback a rrg:RegulatoryDocument ;
+    rdfs:label "DSRS 15.2.6 (section fallback)" ;
+    rrg:docType "DSRS" ;
+    rrg:queryCount 8 .
+
+doc:DSRS_15-2-7_section_fallback a rrg:RegulatoryDocument ;
+    rdfs:label "DSRS 15.2.7 (section fallback)" ;
+    rrg:docType "DSRS" ;
+    rrg:queryCount 2 .
+
+doc:DSRS_15-2-8_section_fallback a rrg:RegulatoryDocument ;
+    rdfs:label "DSRS 15.2.8 (section fallback)" ;
+    rrg:docType "DSRS" ;
+    rrg:queryCount 6 .
+
+doc:DSRS_3-11 a rrg:RegulatoryDocument ;
+    rdfs:label "DSRS 3.11" ;
+    rrg:docType "DSRS" ;
+    rrg:queryCount 35 .
+
+doc:DSRS_3-7-1 a rrg:RegulatoryDocument ;
+    rdfs:label "DSRS 3.7.1" ;
+    rrg:docType "DSRS" ;
+    rrg:queryCount 20 .
+
+doc:DSRS_3-7-2 a rrg:RegulatoryDocument ;
+    rdfs:label "DSRS 3.7.2" ;
+    rrg:docType "DSRS" ;
+    rrg:queryCount 32 .
+
+doc:DSRS_3-8-2_section_fallback a rrg:RegulatoryDocument ;
+    rdfs:label "DSRS 3.8.2 (section fallback)" ;
+    rrg:docType "DSRS" ;
+    rrg:queryCount 24 .
+
+doc:DSRS_3-8-4 a rrg:RegulatoryDocument ;
+    rdfs:label "DSRS 3.8.4" ;
+    rrg:docType "DSRS" ;
+    rrg:queryCount 41 .
+
+doc:DSRS_3-8-5 a rrg:RegulatoryDocument ;
+    rdfs:label "DSRS 3.8.5" ;
+    rrg:docType "DSRS" ;
+    rrg:queryCount 7 .
+
+doc:DSRS_4-4_section_fallback a rrg:RegulatoryDocument ;
+    rdfs:label "DSRS 4.4 (section fallback)" ;
+    rrg:docType "DSRS" ;
+    rrg:queryCount 14 .
+
+doc:DSRS_5-2-4_section_fallback a rrg:RegulatoryDocument ;
+    rdfs:label "DSRS 5.2.4 (section fallback)" ;
+    rrg:docType "DSRS" ;
+    rrg:queryCount 14 .
+
+doc:DSRS_5-2-5_section_fallback a rrg:RegulatoryDocument ;
+    rdfs:label "DSRS 5.2.5 (section fallback)" ;
+    rrg:docType "DSRS" ;
+    rrg:queryCount 2 .
+
+doc:DSRS_5-3-1_section_fallback a rrg:RegulatoryDocument ;
+    rdfs:label "DSRS 5.3.1 (section fallback)" ;
+    rrg:docType "DSRS" ;
+    rrg:queryCount 8 .
+
+doc:DSRS_5-4-7_section_fallback a rrg:RegulatoryDocument ;
+    rdfs:label "DSRS 5.4.7 (section fallback)" ;
+    rrg:docType "DSRS" ;
+    rrg:queryCount 11 .
+
+doc:DSRS_6-2-1_section_fallback a rrg:RegulatoryDocument ;
+    rdfs:label "DSRS 6.2.1 (section fallback)" ;
+    rrg:docType "DSRS" ;
+    rrg:queryCount 8 .
+
+doc:DSRS_6-2-2_section_fallback a rrg:RegulatoryDocument ;
+    rdfs:label "DSRS 6.2.2 (section fallback)" ;
+    rrg:docType "DSRS" ;
+    rrg:queryCount 13 .
+
+doc:DSRS_6-2-4 a rrg:RegulatoryDocument ;
+    rdfs:label "DSRS 6.2.4" ;
+    rrg:docType "DSRS" ;
+    rrg:queryCount 14 .
+
+doc:DSRS_6-2-5_section_fallback a rrg:RegulatoryDocument ;
+    rdfs:label "DSRS 6.2.5 (section fallback)" ;
+    rrg:docType "DSRS" ;
+    rrg:queryCount 17 .
+
+doc:DSRS_6-2-6_section_fallback a rrg:RegulatoryDocument ;
+    rdfs:label "DSRS 6.2.6 (section fallback)" ;
+    rrg:docType "DSRS" ;
+    rrg:queryCount 29 .
+
+doc:DSRS_6-3_section_fallback a rrg:RegulatoryDocument ;
+    rdfs:label "DSRS 6.3 (section fallback)" ;
+    rrg:docType "DSRS" ;
+    rrg:queryCount 3 .
+
+doc:DSRS_6-6_section_fallback a rrg:RegulatoryDocument ;
+    rdfs:label "DSRS 6.6 (section fallback)" ;
+    rrg:docType "DSRS" ;
+    rrg:queryCount 3 .
+
+doc:DSRS_8-1_section_fallback a rrg:RegulatoryDocument ;
+    rdfs:label "DSRS 8.1 (section fallback)" ;
+    rrg:docType "DSRS" ;
+    rrg:queryCount 1 .
+
+doc:DSRS_8-3-2_section_fallback a rrg:RegulatoryDocument ;
+    rdfs:label "DSRS 8.3.2 (section fallback)" ;
+    rrg:docType "DSRS" ;
+    rrg:queryCount 7 .
+
+doc:DSRS_8-4 a rrg:RegulatoryDocument ;
+    rdfs:label "DSRS 8.4" ;
+    rrg:docType "DSRS" ;
+    rrg:queryCount 6 .
+
+doc:DSRS_9-3-4 a rrg:RegulatoryDocument ;
+    rdfs:label "DSRS 9.3.4" ;
+    rrg:docType "DSRS" ;
+    rrg:queryCount 6 .
+
+doc:DSRS_9-3-6_section_fallback a rrg:RegulatoryDocument ;
+    rdfs:label "DSRS 9.3.6 (section fallback)" ;
+    rrg:docType "DSRS" ;
+    rrg:queryCount 9 .
+
+doc:RG_1-100 a rrg:RegulatoryDocument ;
+    rdfs:label "RG 1.100" ;
+    rrg:docType "RG" ;
+    rrg:queryCount 10 .
+
+doc:RG_1-138 a rrg:RegulatoryDocument ;
+    rdfs:label "RG 1.138" ;
+    rrg:docType "RG" ;
+    rrg:queryCount 25 .
+
+doc:RG_1-143 a rrg:RegulatoryDocument ;
+    rdfs:label "RG 1.143" ;
+    rrg:docType "RG" ;
+    rrg:queryCount 52 .
+
+doc:RG_1-145 a rrg:RegulatoryDocument ;
+    rdfs:label "RG 1.145" ;
+    rrg:docType "RG" ;
+    rrg:queryCount 19 .
+
+doc:RG_1-147 a rrg:RegulatoryDocument ;
+    rdfs:label "RG 1.147" ;
+    rrg:docType "RG" ;
+    rrg:queryCount 13 .
+
+doc:RG_1-155 a rrg:RegulatoryDocument ;
+    rdfs:label "RG 1.155" ;
+    rrg:docType "RG" ;
+    rrg:queryCount 27 .
+
+doc:RG_1-160 a rrg:RegulatoryDocument ;
+    rdfs:label "RG 1.160" ;
+    rrg:docType "RG" ;
+    rrg:queryCount 15 .
+
+doc:RG_1-163 a rrg:RegulatoryDocument ;
+    rdfs:label "RG 1.163" ;
+    rrg:docType "RG" ;
+    rrg:queryCount 28 .
+
+doc:RG_1-183 a rrg:RegulatoryDocument ;
+    rdfs:label "RG 1.183" ;
+    rrg:docType "RG" ;
+    rrg:queryCount 42 .
+
+doc:RG_1-194 a rrg:RegulatoryDocument ;
+    rdfs:label "RG 1.194" ;
+    rrg:docType "RG" ;
+    rrg:queryCount 11 .
+
+doc:RG_1-198 a rrg:RegulatoryDocument ;
+    rdfs:label "RG 1.198" ;
+    rrg:docType "RG" ;
+    rrg:queryCount 13 .
+
+doc:RG_1-20 a rrg:RegulatoryDocument ;
+    rdfs:label "RG 1.20" ;
+    rrg:docType "RG" ;
+    rrg:queryCount 28 .
+
+doc:RG_1-206 a rrg:RegulatoryDocument ;
+    rdfs:label "RG 1.206" ;
+    rrg:docType "RG" ;
+    rrg:queryCount 78 .
+
+doc:RG_1-216 a rrg:RegulatoryDocument ;
+    rdfs:label "RG 1.216" ;
+    rrg:docType "RG" ;
+    rrg:queryCount 14 .
+
+doc:RG_1-221 a rrg:RegulatoryDocument ;
+    rdfs:label "RG 1.221" ;
+    rrg:docType "RG" ;
+    rrg:queryCount 2 .
+
+doc:RG_1-23 a rrg:RegulatoryDocument ;
+    rdfs:label "RG 1.23" ;
+    rrg:docType "RG" ;
+    rrg:queryCount 37 .
+
+doc:RG_1-26 a rrg:RegulatoryDocument ;
+    rdfs:label "RG 1.26" ;
+    rrg:docType "RG" ;
+    rrg:queryCount 38 .
+
+doc:RG_1-28 a rrg:RegulatoryDocument ;
+    rdfs:label "RG 1.28" ;
+    rrg:docType "RG" ;
+    rrg:queryCount 11 .
+
+doc:RG_1-29 a rrg:RegulatoryDocument ;
+    rdfs:label "RG 1.29" ;
+    rrg:docType "RG" ;
+    rrg:queryCount 101 .
+
+doc:RG_1-32 a rrg:RegulatoryDocument ;
+    rdfs:label "RG 1.32" ;
+    rrg:docType "RG" ;
+    rrg:queryCount 12 .
+
+doc:RG_1-33 a rrg:RegulatoryDocument ;
+    rdfs:label "RG 1.33" ;
+    rrg:docType "RG" ;
+    rrg:queryCount 2 .
+
+doc:RG_1-36 a rrg:RegulatoryDocument ;
+    rdfs:label "RG 1.36" ;
+    rrg:docType "RG" ;
+    rrg:queryCount 1 .
+
+doc:RG_1-44 a rrg:RegulatoryDocument ;
+    rdfs:label "RG 1.44" ;
+    rrg:docType "RG" ;
+    rrg:queryCount 21 .
+
+doc:RG_1-45 a rrg:RegulatoryDocument ;
+    rdfs:label "RG 1.45" ;
+    rrg:docType "RG" ;
+    rrg:queryCount 2 .
+
+doc:RG_1-50 a rrg:RegulatoryDocument ;
+    rdfs:label "RG 1.50" ;
+    rrg:docType "RG" ;
+    rrg:queryCount 28 .
+
+doc:RG_1-53 a rrg:RegulatoryDocument ;
+    rdfs:label "RG 1.53" ;
+    rrg:docType "RG" ;
+    rrg:queryCount 11 .
+
+doc:RG_1-57 a rrg:RegulatoryDocument ;
+    rdfs:label "RG 1.57" ;
+    rrg:docType "RG" ;
+    rrg:queryCount 15 .
+
+doc:RG_1-59 a rrg:RegulatoryDocument ;
+    rdfs:label "RG 1.59" ;
+    rrg:docType "RG" ;
+    rrg:queryCount 44 .
+
+doc:RG_1-61 a rrg:RegulatoryDocument ;
+    rdfs:label "RG 1.61" ;
+    rrg:docType "RG" ;
+    rrg:queryCount 5 .
+
+doc:RG_1-65 a rrg:RegulatoryDocument ;
+    rdfs:label "RG 1.65" ;
+    rrg:docType "RG" ;
+    rrg:queryCount 2 .
+
+doc:RG_1-68 a rrg:RegulatoryDocument ;
+    rdfs:label "RG 1.68" ;
+    rrg:docType "RG" ;
+    rrg:queryCount 16 .
+
+doc:RG_1-71 a rrg:RegulatoryDocument ;
+    rdfs:label "RG 1.71" ;
+    rrg:docType "RG" ;
+    rrg:queryCount 25 .
+
+doc:RG_1-76 a rrg:RegulatoryDocument ;
+    rdfs:label "RG 1.76" ;
+    rrg:docType "RG" ;
+    rrg:queryCount 38 .
+
+doc:RG_1-78 a rrg:RegulatoryDocument ;
+    rdfs:label "RG 1.78" ;
+    rrg:docType "RG" ;
+    rrg:queryCount 27 .
+
+doc:RG_1-8 a rrg:RegulatoryDocument ;
+    rdfs:label "RG 1.8" ;
+    rrg:docType "RG" ;
+    rrg:queryCount 21 .
+
+doc:RG_1-82 a rrg:RegulatoryDocument ;
+    rdfs:label "RG 1.82" ;
+    rrg:docType "RG" ;
+    rrg:queryCount 14 .
+
+doc:RG_1-84 a rrg:RegulatoryDocument ;
+    rdfs:label "RG 1.84" ;
+    rrg:docType "RG" ;
+    rrg:queryCount 32 .
+
+doc:RG_1-97 a rrg:RegulatoryDocument ;
+    rdfs:label "RG 1.97" ;
+    rrg:docType "RG" ;
+    rrg:queryCount 23 .
+
+doc:RG_4-21 a rrg:RegulatoryDocument ;
+    rdfs:label "RG 4.21" ;
+    rrg:docType "RG" ;
+    rrg:queryCount 16 .
+
+doc:SRP_10-2 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 10.2" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 2 .
+
+doc:SRP_10-3-6 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 10.3.6" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 15 .
+
+doc:SRP_10-4-1 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 10.4.1" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 12 .
+
+doc:SRP_10-4-5 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 10.4.5" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 8 .
+
+doc:SRP_10-4-6 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 10.4.6" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 2 .
+
+doc:SRP_11-2 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 11.2" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 16 .
+
+doc:SRP_11-3 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 11.3" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 12 .
+
+doc:SRP_11-4 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 11.4" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 2 .
+
+doc:SRP_13-1-1 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 13.1.1" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 16 .
+
+doc:SRP_13-2-1 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 13.2.1" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 12 .
+
+doc:SRP_13-2-2 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 13.2.2" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 13 .
+
+doc:SRP_13-3 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 13.3" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 32 .
+
+doc:SRP_13-5-1 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 13.5.1" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 6 .
+
+doc:SRP_13-6 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 13.6" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 2 .
+
+doc:SRP_14-2 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 14.2" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 13 .
+
+doc:SRP_14-3-10 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 14.3.10" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 18 .
+
+doc:SRP_15-0-3 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 15.0.3" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 6 .
+
+doc:SRP_15-4-8 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 15.4.8" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 1 .
+
+doc:SRP_16-0 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 16.0" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 2 .
+
+doc:SRP_17-5 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 17.5" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 2 .
+
+doc:SRP_19-0 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 19.0" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 3 .
+
+doc:SRP_19-3 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 19.3" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 9 .
+
+doc:SRP_2-3-1 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 2.3.1" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 48 .
+
+doc:SRP_2-3-2 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 2.3.2" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 11 .
+
+doc:SRP_2-3-3 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 2.3.3" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 13 .
+
+doc:SRP_2-3-4 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 2.3.4" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 14 .
+
+doc:SRP_2-3-5 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 2.3.5" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 13 .
+
+doc:SRP_2-4-1 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 2.4.1" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 8 .
+
+doc:SRP_2-4-12 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 2.4.12" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 50 .
+
+doc:SRP_2-4-13 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 2.4.13" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 18 .
+
+doc:SRP_2-4-2 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 2.4.2" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 2 .
+
+doc:SRP_2-4-3 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 2.4.3" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 17 .
+
+doc:SRP_2-4-4 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 2.4.4" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 7 .
+
+doc:SRP_2-4-5 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 2.4.5" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 3 .
+
+doc:SRP_2-4-6 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 2.4.6" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 29 .
+
+doc:SRP_2-5-1 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 2.5.1" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 22 .
+
+doc:SRP_2-5-2 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 2.5.2" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 43 .
+
+doc:SRP_2-5-3 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 2.5.3" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 8 .
+
+doc:SRP_2-5-4 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 2.5.4" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 22 .
+
+doc:SRP_3-12 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 3.12" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 5 .
+
+doc:SRP_3-3-1 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 3.3.1" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 12 .
+
+doc:SRP_3-4-2 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 3.4.2" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 12 .
+
+doc:SRP_3-5-2 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 3.5.2" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 5 .
+
+doc:SRP_3-7-1 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 3.7.1" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 33 .
+
+doc:SRP_3-7-2 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 3.7.2" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 27 .
+
+doc:SRP_3-8-5 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 3.8.5" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 32 .
+
+doc:SRP_3-9-1 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 3.9.1" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 10 .
+
+doc:SRP_3-9-2 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 3.9.2" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 35 .
+
+doc:SRP_3-9-3 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 3.9.3" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 32 .
+
+doc:SRP_3-9-5 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 3.9.5" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 16 .
+
+doc:SRP_4-6 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 4.6" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 4 .
+
+doc:SRP_5-2-3 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 5.2.3" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 43 .
+
+doc:SRP_6-4 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 6.4" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 24 .
+
+doc:SRP_8-1 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 8.1" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 6 .
+
+doc:SRP_8-2 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 8.2" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 13 .
+
+doc:SRP_8-3-1 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 8.3.1" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 2 .
+
+doc:SRP_9-1-1 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 9.1.1" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 25 .
+
+doc:SRP_9-1-2 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 9.1.2" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 6 .
+
+doc:SRP_9-1-3 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 9.1.3" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 12 .
+
+doc:SRP_9-2-6 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 9.2.6" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 7 .
+
+doc:SRP_9-2-7 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 9.2.7" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 9 .
+
+doc:SRP_9-3-3 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 9.3.3" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 4 .
+
+doc:SRP_9-5-2 a rrg:RegulatoryDocument ;
+    rdfs:label "SRP 9.5.2" ;
+    rrg:docType "SRP" ;
+    rrg:queryCount 1 .
+
+# -----------------------------------------------------------------------------
+# Typed inter-document references (392 distinct edges)
+# Each edge is asserted as a direct triple and reified to carry a weight.
+# -----------------------------------------------------------------------------
+doc:10_CFR_Part_50 rrg:lateralCrossReference doc:RG_1-143 .
+_:e0 a rdf:Statement ; rdf:subject doc:10_CFR_Part_50 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:RG_1-143 ; rrg:weight 1 .
+doc:10_CFR_Part_50 rrg:lateralCrossReference doc:RG_1-145 .
+_:e1 a rdf:Statement ; rdf:subject doc:10_CFR_Part_50 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:RG_1-145 ; rrg:weight 2 .
+doc:10_CFR_Part_50 rrg:lateralCrossReference doc:RG_1-194 .
+_:e2 a rdf:Statement ; rdf:subject doc:10_CFR_Part_50 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:RG_1-194 ; rrg:weight 2 .
+doc:10_CFR_Part_50 rrg:methodologyGuidance doc:RG_1-29 .
+_:e3 a rdf:Statement ; rdf:subject doc:10_CFR_Part_50 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-29 ; rrg:weight 1 .
+doc:10_CFR_Part_50 rrg:methodologyGuidance doc:RG_1-59 .
+_:e4 a rdf:Statement ; rdf:subject doc:10_CFR_Part_50 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-59 ; rrg:weight 1 .
+doc:10_CFR_Part_50 rrg:methodologyGuidance doc:RG_1-61 .
+_:e5 a rdf:Statement ; rdf:subject doc:10_CFR_Part_50 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-61 ; rrg:weight 1 .
+doc:10_CFR_Part_50 rrg:lateralCrossReference doc:RG_1-97 .
+_:e6 a rdf:Statement ; rdf:subject doc:10_CFR_Part_50 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:RG_1-97 ; rrg:weight 1 .
+doc:10_CFR_Part_50 rrg:lateralCrossReference doc:SRP_2-3-1 .
+_:e7 a rdf:Statement ; rdf:subject doc:10_CFR_Part_50 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_2-3-1 ; rrg:weight 1 .
+doc:10_CFR_Part_50 rrg:lateralCrossReference doc:SRP_2-5-2 .
+_:e8 a rdf:Statement ; rdf:subject doc:10_CFR_Part_50 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_2-5-2 ; rrg:weight 7 .
+doc:10_CFR_Part_50 rrg:lateralCrossReference doc:SRP_3-7-1 .
+_:e9 a rdf:Statement ; rdf:subject doc:10_CFR_Part_50 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_3-7-1 ; rrg:weight 1 .
+doc:DSRS_10-2-3_section_fallback rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e10 a rdf:Statement ; rdf:subject doc:DSRS_10-2-3_section_fallback ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 4 .
+doc:DSRS_10-2-3_section_fallback rrg:lateralCrossReference doc:SRP_13-2-2 .
+_:e11 a rdf:Statement ; rdf:subject doc:DSRS_10-2-3_section_fallback ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_13-2-2 ; rrg:weight 1 .
+doc:DSRS_10-2-3_section_fallback rrg:lateralCrossReference doc:SRP_19-3 .
+_:e12 a rdf:Statement ; rdf:subject doc:DSRS_10-2-3_section_fallback ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_19-3 ; rrg:weight 2 .
+doc:DSRS_11-1 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e13 a rdf:Statement ; rdf:subject doc:DSRS_11-1 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 15 .
+doc:DSRS_11-1 rrg:lateralCrossReference doc:DSRS_11-2 .
+_:e14 a rdf:Statement ; rdf:subject doc:DSRS_11-1 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:DSRS_11-2 ; rrg:weight 1 .
+doc:DSRS_11-2 rrg:lateralCrossReference doc:SRP_2-4-13 .
+_:e15 a rdf:Statement ; rdf:subject doc:DSRS_11-2 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_2-4-13 ; rrg:weight 1 .
+doc:DSRS_12-2 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e16 a rdf:Statement ; rdf:subject doc:DSRS_12-2 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 29 .
+doc:DSRS_12-2 rrg:methodologyGuidance doc:RG_1-143 .
+_:e17 a rdf:Statement ; rdf:subject doc:DSRS_12-2 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-143 ; rrg:weight 15 .
+doc:DSRS_12-2 rrg:methodologyGuidance doc:RG_1-183 .
+_:e18 a rdf:Statement ; rdf:subject doc:DSRS_12-2 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-183 ; rrg:weight 28 .
+doc:DSRS_12-2 rrg:methodologyGuidance doc:RG_1-26 .
+_:e19 a rdf:Statement ; rdf:subject doc:DSRS_12-2 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-26 ; rrg:weight 11 .
+doc:DSRS_12-2 rrg:methodologyGuidance doc:RG_1-29 .
+_:e20 a rdf:Statement ; rdf:subject doc:DSRS_12-2 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-29 ; rrg:weight 2 .
+doc:DSRS_14-2 rrg:methodologyGuidance doc:RG_1-68 .
+_:e21 a rdf:Statement ; rdf:subject doc:DSRS_14-2 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-68 ; rrg:weight 1 .
+doc:DSRS_14-2 rrg:lateralCrossReference doc:SRP_14-2 .
+_:e22 a rdf:Statement ; rdf:subject doc:DSRS_14-2 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_14-2 ; rrg:weight 1 .
+doc:DSRS_15-1-5_section_fallback rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e23 a rdf:Statement ; rdf:subject doc:DSRS_15-1-5_section_fallback ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 3 .
+doc:DSRS_15-1-5_section_fallback rrg:lateralCrossReference doc:DSRS_4-4_section_fallback .
+_:e24 a rdf:Statement ; rdf:subject doc:DSRS_15-1-5_section_fallback ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:DSRS_4-4_section_fallback ; rrg:weight 3 .
+doc:DSRS_15-1-5_section_fallback rrg:lateralCrossReference doc:SRP_14-2 .
+_:e25 a rdf:Statement ; rdf:subject doc:DSRS_15-1-5_section_fallback ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_14-2 ; rrg:weight 3 .
+doc:DSRS_15-1-5_section_fallback rrg:lateralCrossReference doc:SRP_14-3-10 .
+_:e26 a rdf:Statement ; rdf:subject doc:DSRS_15-1-5_section_fallback ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_14-3-10 ; rrg:weight 1 .
+doc:DSRS_15-2-6_section_fallback rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e27 a rdf:Statement ; rdf:subject doc:DSRS_15-2-6_section_fallback ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 8 .
+doc:DSRS_15-2-6_section_fallback rrg:lateralCrossReference doc:DSRS_4-4_section_fallback .
+_:e28 a rdf:Statement ; rdf:subject doc:DSRS_15-2-6_section_fallback ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:DSRS_4-4_section_fallback ; rrg:weight 4 .
+doc:DSRS_15-2-6_section_fallback rrg:methodologyGuidance doc:RG_1-53 .
+_:e29 a rdf:Statement ; rdf:subject doc:DSRS_15-2-6_section_fallback ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-53 ; rrg:weight 8 .
+doc:DSRS_15-2-7_section_fallback rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e30 a rdf:Statement ; rdf:subject doc:DSRS_15-2-7_section_fallback ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 2 .
+doc:DSRS_15-2-7_section_fallback rrg:methodologyGuidance doc:RG_1-206 .
+_:e31 a rdf:Statement ; rdf:subject doc:DSRS_15-2-7_section_fallback ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-206 ; rrg:weight 2 .
+doc:DSRS_15-2-7_section_fallback rrg:methodologyGuidance doc:RG_1-53 .
+_:e32 a rdf:Statement ; rdf:subject doc:DSRS_15-2-7_section_fallback ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-53 ; rrg:weight 2 .
+doc:DSRS_15-2-8_section_fallback rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e33 a rdf:Statement ; rdf:subject doc:DSRS_15-2-8_section_fallback ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 6 .
+doc:DSRS_15-2-8_section_fallback rrg:lateralCrossReference doc:DSRS_14-2 .
+_:e34 a rdf:Statement ; rdf:subject doc:DSRS_15-2-8_section_fallback ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:DSRS_14-2 ; rrg:weight 1 .
+doc:DSRS_15-2-8_section_fallback rrg:lateralCrossReference doc:DSRS_4-4_section_fallback .
+_:e35 a rdf:Statement ; rdf:subject doc:DSRS_15-2-8_section_fallback ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:DSRS_4-4_section_fallback ; rrg:weight 1 .
+doc:DSRS_15-2-8_section_fallback rrg:lateralCrossReference doc:DSRS_5-3-1_section_fallback .
+_:e36 a rdf:Statement ; rdf:subject doc:DSRS_15-2-8_section_fallback ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:DSRS_5-3-1_section_fallback ; rrg:weight 1 .
+doc:DSRS_15-2-8_section_fallback rrg:lateralCrossReference doc:SRP_3-9-1 .
+_:e37 a rdf:Statement ; rdf:subject doc:DSRS_15-2-8_section_fallback ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_3-9-1 ; rrg:weight 1 .
+doc:DSRS_15-2-8_section_fallback rrg:lateralCrossReference doc:SRP_3-9-2 .
+_:e38 a rdf:Statement ; rdf:subject doc:DSRS_15-2-8_section_fallback ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_3-9-2 ; rrg:weight 1 .
+doc:DSRS_15-2-8_section_fallback rrg:lateralCrossReference doc:SRP_3-9-3 .
+_:e39 a rdf:Statement ; rdf:subject doc:DSRS_15-2-8_section_fallback ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_3-9-3 ; rrg:weight 1 .
+doc:DSRS_15-2-8_section_fallback rrg:lateralCrossReference doc:SRP_5-2-3 .
+_:e40 a rdf:Statement ; rdf:subject doc:DSRS_15-2-8_section_fallback ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_5-2-3 ; rrg:weight 1 .
+doc:DSRS_3-11 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e41 a rdf:Statement ; rdf:subject doc:DSRS_3-11 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 32 .
+doc:DSRS_3-11 rrg:methodologyGuidance doc:RG_1-97 .
+_:e42 a rdf:Statement ; rdf:subject doc:DSRS_3-11 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-97 ; rrg:weight 15 .
+doc:DSRS_3-7-1 rrg:lateralCrossReference doc:SRP_2-5-2 .
+_:e43 a rdf:Statement ; rdf:subject doc:DSRS_3-7-1 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_2-5-2 ; rrg:weight 2 .
+doc:DSRS_3-7-2 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e44 a rdf:Statement ; rdf:subject doc:DSRS_3-7-2 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 32 .
+doc:DSRS_3-7-2 rrg:lateralCrossReference doc:DSRS_3-7-1 .
+_:e45 a rdf:Statement ; rdf:subject doc:DSRS_3-7-2 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:DSRS_3-7-1 ; rrg:weight 20 .
+doc:DSRS_3-7-2 rrg:lateralCrossReference doc:DSRS_3-8-4 .
+_:e46 a rdf:Statement ; rdf:subject doc:DSRS_3-7-2 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:DSRS_3-8-4 ; rrg:weight 9 .
+doc:DSRS_3-7-2 rrg:lateralCrossReference doc:DSRS_3-8-5 .
+_:e47 a rdf:Statement ; rdf:subject doc:DSRS_3-7-2 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:DSRS_3-8-5 ; rrg:weight 7 .
+doc:DSRS_3-7-2 rrg:lateralCrossReference doc:SRP_19-0 .
+_:e48 a rdf:Statement ; rdf:subject doc:DSRS_3-7-2 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_19-0 ; rrg:weight 1 .
+doc:DSRS_3-7-2 rrg:lateralCrossReference doc:SRP_2-5-4 .
+_:e49 a rdf:Statement ; rdf:subject doc:DSRS_3-7-2 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_2-5-4 ; rrg:weight 1 .
+doc:DSRS_3-7-2 rrg:lateralCrossReference doc:SRP_3-7-1 .
+_:e50 a rdf:Statement ; rdf:subject doc:DSRS_3-7-2 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_3-7-1 ; rrg:weight 1 .
+doc:DSRS_3-7-2 rrg:lateralCrossReference doc:SRP_3-8-5 .
+_:e51 a rdf:Statement ; rdf:subject doc:DSRS_3-7-2 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_3-8-5 ; rrg:weight 1 .
+doc:DSRS_3-8-2_section_fallback rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e52 a rdf:Statement ; rdf:subject doc:DSRS_3-8-2_section_fallback ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 24 .
+doc:DSRS_3-8-2_section_fallback rrg:methodologyGuidance doc:RG_1-206 .
+_:e53 a rdf:Statement ; rdf:subject doc:DSRS_3-8-2_section_fallback ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-206 ; rrg:weight 4 .
+doc:DSRS_3-8-2_section_fallback rrg:methodologyGuidance doc:RG_1-216 .
+_:e54 a rdf:Statement ; rdf:subject doc:DSRS_3-8-2_section_fallback ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-216 ; rrg:weight 5 .
+doc:DSRS_3-8-2_section_fallback rrg:methodologyGuidance doc:RG_1-57 .
+_:e55 a rdf:Statement ; rdf:subject doc:DSRS_3-8-2_section_fallback ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-57 ; rrg:weight 12 .
+doc:DSRS_3-8-2_section_fallback rrg:methodologyGuidance doc:RG_1-71 .
+_:e56 a rdf:Statement ; rdf:subject doc:DSRS_3-8-2_section_fallback ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-71 ; rrg:weight 4 .
+doc:DSRS_3-8-2_section_fallback rrg:lateralCrossReference doc:SRP_3-9-1 .
+_:e57 a rdf:Statement ; rdf:subject doc:DSRS_3-8-2_section_fallback ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_3-9-1 ; rrg:weight 2 .
+doc:DSRS_3-8-4 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e58 a rdf:Statement ; rdf:subject doc:DSRS_3-8-4 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 30 .
+doc:DSRS_3-8-4 rrg:methodologyGuidance doc:RG_1-143 .
+_:e59 a rdf:Statement ; rdf:subject doc:DSRS_3-8-4 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-143 ; rrg:weight 11 .
+doc:DSRS_3-8-4 rrg:methodologyGuidance doc:RG_1-160 .
+_:e60 a rdf:Statement ; rdf:subject doc:DSRS_3-8-4 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-160 ; rrg:weight 1 .
+doc:DSRS_3-8-4 rrg:methodologyGuidance doc:RG_1-206 .
+_:e61 a rdf:Statement ; rdf:subject doc:DSRS_3-8-4 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-206 ; rrg:weight 5 .
+doc:DSRS_3-8-4 rrg:methodologyGuidance doc:RG_1-221 .
+_:e62 a rdf:Statement ; rdf:subject doc:DSRS_3-8-4 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-221 ; rrg:weight 2 .
+doc:DSRS_3-8-4 rrg:lateralCrossReference doc:SRP_2-5-2 .
+_:e63 a rdf:Statement ; rdf:subject doc:DSRS_3-8-4 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_2-5-2 ; rrg:weight 1 .
+doc:DSRS_3-8-4 rrg:lateralCrossReference doc:SRP_3-9-2 .
+_:e64 a rdf:Statement ; rdf:subject doc:DSRS_3-8-4 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_3-9-2 ; rrg:weight 1 .
+doc:DSRS_4-4_section_fallback rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e65 a rdf:Statement ; rdf:subject doc:DSRS_4-4_section_fallback ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 6 .
+doc:DSRS_4-4_section_fallback rrg:methodologyGuidance doc:RG_1-68 .
+_:e66 a rdf:Statement ; rdf:subject doc:DSRS_4-4_section_fallback ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-68 ; rrg:weight 6 .
+doc:DSRS_4-4_section_fallback rrg:lateralCrossReference doc:SRP_14-2 .
+_:e67 a rdf:Statement ; rdf:subject doc:DSRS_4-4_section_fallback ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_14-2 ; rrg:weight 7 .
+doc:DSRS_5-2-4_section_fallback rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e68 a rdf:Statement ; rdf:subject doc:DSRS_5-2-4_section_fallback ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 14 .
+doc:DSRS_5-2-4_section_fallback rrg:methodologyGuidance doc:RG_1-147 .
+_:e69 a rdf:Statement ; rdf:subject doc:DSRS_5-2-4_section_fallback ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-147 ; rrg:weight 10 .
+doc:DSRS_5-2-5_section_fallback rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e70 a rdf:Statement ; rdf:subject doc:DSRS_5-2-5_section_fallback ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 2 .
+doc:DSRS_5-2-5_section_fallback rrg:methodologyGuidance doc:RG_1-29 .
+_:e71 a rdf:Statement ; rdf:subject doc:DSRS_5-2-5_section_fallback ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-29 ; rrg:weight 2 .
+doc:DSRS_5-2-5_section_fallback rrg:methodologyGuidance doc:RG_1-45 .
+_:e72 a rdf:Statement ; rdf:subject doc:DSRS_5-2-5_section_fallback ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-45 ; rrg:weight 2 .
+doc:DSRS_5-3-1_section_fallback rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e73 a rdf:Statement ; rdf:subject doc:DSRS_5-3-1_section_fallback ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 7 .
+doc:DSRS_5-3-1_section_fallback rrg:methodologyGuidance doc:RG_1-28 .
+_:e74 a rdf:Statement ; rdf:subject doc:DSRS_5-3-1_section_fallback ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-28 ; rrg:weight 3 .
+doc:DSRS_5-3-1_section_fallback rrg:methodologyGuidance doc:RG_1-44 .
+_:e75 a rdf:Statement ; rdf:subject doc:DSRS_5-3-1_section_fallback ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-44 ; rrg:weight 3 .
+doc:DSRS_5-3-1_section_fallback rrg:methodologyGuidance doc:RG_1-50 .
+_:e76 a rdf:Statement ; rdf:subject doc:DSRS_5-3-1_section_fallback ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-50 ; rrg:weight 2 .
+doc:DSRS_5-3-1_section_fallback rrg:methodologyGuidance doc:RG_1-65 .
+_:e77 a rdf:Statement ; rdf:subject doc:DSRS_5-3-1_section_fallback ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-65 ; rrg:weight 2 .
+doc:DSRS_5-4-7_section_fallback rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e78 a rdf:Statement ; rdf:subject doc:DSRS_5-4-7_section_fallback ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 11 .
+doc:DSRS_5-4-7_section_fallback rrg:lateralCrossReference doc:DSRS_14-2 .
+_:e79 a rdf:Statement ; rdf:subject doc:DSRS_5-4-7_section_fallback ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:DSRS_14-2 ; rrg:weight 3 .
+doc:DSRS_5-4-7_section_fallback rrg:lateralCrossReference doc:DSRS_6-2-4 .
+_:e80 a rdf:Statement ; rdf:subject doc:DSRS_5-4-7_section_fallback ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:DSRS_6-2-4 ; rrg:weight 1 .
+doc:DSRS_5-4-7_section_fallback rrg:lateralCrossReference doc:DSRS_6-3_section_fallback .
+_:e81 a rdf:Statement ; rdf:subject doc:DSRS_5-4-7_section_fallback ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:DSRS_6-3_section_fallback ; rrg:weight 1 .
+doc:DSRS_5-4-7_section_fallback rrg:methodologyGuidance doc:RG_1-26 .
+_:e82 a rdf:Statement ; rdf:subject doc:DSRS_5-4-7_section_fallback ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-26 ; rrg:weight 3 .
+doc:DSRS_5-4-7_section_fallback rrg:methodologyGuidance doc:RG_1-29 .
+_:e83 a rdf:Statement ; rdf:subject doc:DSRS_5-4-7_section_fallback ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-29 ; rrg:weight 2 .
+doc:DSRS_5-4-7_section_fallback rrg:methodologyGuidance doc:RG_1-68 .
+_:e84 a rdf:Statement ; rdf:subject doc:DSRS_5-4-7_section_fallback ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-68 ; rrg:weight 1 .
+doc:DSRS_5-4-7_section_fallback rrg:lateralCrossReference doc:SRP_14-3-10 .
+_:e85 a rdf:Statement ; rdf:subject doc:DSRS_5-4-7_section_fallback ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_14-3-10 ; rrg:weight 1 .
+doc:DSRS_6-2-1_section_fallback rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e86 a rdf:Statement ; rdf:subject doc:DSRS_6-2-1_section_fallback ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 8 .
+doc:DSRS_6-2-1_section_fallback rrg:methodologyGuidance doc:RG_1-143 .
+_:e87 a rdf:Statement ; rdf:subject doc:DSRS_6-2-1_section_fallback ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-143 ; rrg:weight 1 .
+doc:DSRS_6-2-1_section_fallback rrg:methodologyGuidance doc:RG_1-183 .
+_:e88 a rdf:Statement ; rdf:subject doc:DSRS_6-2-1_section_fallback ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-183 ; rrg:weight 1 .
+doc:DSRS_6-2-1_section_fallback rrg:methodologyGuidance doc:RG_1-71 .
+_:e89 a rdf:Statement ; rdf:subject doc:DSRS_6-2-1_section_fallback ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-71 ; rrg:weight 1 .
+doc:DSRS_6-2-1_section_fallback rrg:lateralCrossReference doc:SRP_3-9-3 .
+_:e90 a rdf:Statement ; rdf:subject doc:DSRS_6-2-1_section_fallback ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_3-9-3 ; rrg:weight 1 .
+doc:DSRS_6-2-2_section_fallback rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e91 a rdf:Statement ; rdf:subject doc:DSRS_6-2-2_section_fallback ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 13 .
+doc:DSRS_6-2-2_section_fallback rrg:methodologyGuidance doc:RG_1-82 .
+_:e92 a rdf:Statement ; rdf:subject doc:DSRS_6-2-2_section_fallback ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-82 ; rrg:weight 13 .
+doc:DSRS_6-2-4 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e93 a rdf:Statement ; rdf:subject doc:DSRS_6-2-4 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 13 .
+doc:DSRS_6-2-4 rrg:methodologyGuidance doc:RG_1-155 .
+_:e94 a rdf:Statement ; rdf:subject doc:DSRS_6-2-4 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-155 ; rrg:weight 6 .
+doc:DSRS_6-2-4 rrg:methodologyGuidance doc:RG_1-26 .
+_:e95 a rdf:Statement ; rdf:subject doc:DSRS_6-2-4 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-26 ; rrg:weight 6 .
+doc:DSRS_6-2-4 rrg:methodologyGuidance doc:RG_1-29 .
+_:e96 a rdf:Statement ; rdf:subject doc:DSRS_6-2-4 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-29 ; rrg:weight 6 .
+doc:DSRS_6-2-5_section_fallback rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e97 a rdf:Statement ; rdf:subject doc:DSRS_6-2-5_section_fallback ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 17 .
+doc:DSRS_6-2-5_section_fallback rrg:methodologyGuidance doc:RG_1-216 .
+_:e98 a rdf:Statement ; rdf:subject doc:DSRS_6-2-5_section_fallback ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-216 ; rrg:weight 9 .
+doc:DSRS_6-2-5_section_fallback rrg:lateralCrossReference doc:SRP_14-3-10 .
+_:e99 a rdf:Statement ; rdf:subject doc:DSRS_6-2-5_section_fallback ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_14-3-10 ; rrg:weight 2 .
+doc:DSRS_6-2-5_section_fallback rrg:lateralCrossReference doc:SRP_19-0 .
+_:e100 a rdf:Statement ; rdf:subject doc:DSRS_6-2-5_section_fallback ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_19-0 ; rrg:weight 2 .
+doc:DSRS_6-2-6_section_fallback rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e101 a rdf:Statement ; rdf:subject doc:DSRS_6-2-6_section_fallback ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 29 .
+doc:DSRS_6-2-6_section_fallback rrg:methodologyGuidance doc:RG_1-163 .
+_:e102 a rdf:Statement ; rdf:subject doc:DSRS_6-2-6_section_fallback ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-163 ; rrg:weight 28 .
+doc:DSRS_6-3_section_fallback rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e103 a rdf:Statement ; rdf:subject doc:DSRS_6-3_section_fallback ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 1 .
+doc:DSRS_6-3_section_fallback rrg:lateralCrossReference doc:DSRS_14-2 .
+_:e104 a rdf:Statement ; rdf:subject doc:DSRS_6-3_section_fallback ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:DSRS_14-2 ; rrg:weight 1 .
+doc:DSRS_6-3_section_fallback rrg:methodologyGuidance doc:RG_1-68 .
+_:e105 a rdf:Statement ; rdf:subject doc:DSRS_6-3_section_fallback ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-68 ; rrg:weight 2 .
+doc:DSRS_6-3_section_fallback rrg:methodologyGuidance doc:RG_1-82 .
+_:e106 a rdf:Statement ; rdf:subject doc:DSRS_6-3_section_fallback ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-82 ; rrg:weight 1 .
+doc:DSRS_6-6_section_fallback rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e107 a rdf:Statement ; rdf:subject doc:DSRS_6-6_section_fallback ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 3 .
+doc:DSRS_6-6_section_fallback rrg:methodologyGuidance doc:RG_1-147 .
+_:e108 a rdf:Statement ; rdf:subject doc:DSRS_6-6_section_fallback ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-147 ; rrg:weight 3 .
+doc:DSRS_6-6_section_fallback rrg:lateralCrossReference doc:SRP_13-2-2 .
+_:e109 a rdf:Statement ; rdf:subject doc:DSRS_6-6_section_fallback ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_13-2-2 ; rrg:weight 1 .
+doc:DSRS_8-3-2_section_fallback rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e110 a rdf:Statement ; rdf:subject doc:DSRS_8-3-2_section_fallback ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 6 .
+doc:DSRS_8-3-2_section_fallback rrg:lateralCrossReference doc:DSRS_3-11 .
+_:e111 a rdf:Statement ; rdf:subject doc:DSRS_8-3-2_section_fallback ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:DSRS_3-11 ; rrg:weight 3 .
+doc:DSRS_8-3-2_section_fallback rrg:lateralCrossReference doc:DSRS_8-1_section_fallback .
+_:e112 a rdf:Statement ; rdf:subject doc:DSRS_8-3-2_section_fallback ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:DSRS_8-1_section_fallback ; rrg:weight 1 .
+doc:DSRS_8-3-2_section_fallback rrg:methodologyGuidance doc:RG_1-32 .
+_:e113 a rdf:Statement ; rdf:subject doc:DSRS_8-3-2_section_fallback ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-32 ; rrg:weight 2 .
+doc:DSRS_8-4 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e114 a rdf:Statement ; rdf:subject doc:DSRS_8-4 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 6 .
+doc:DSRS_8-4 rrg:methodologyGuidance doc:RG_1-155 .
+_:e115 a rdf:Statement ; rdf:subject doc:DSRS_8-4 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-155 ; rrg:weight 6 .
+doc:DSRS_8-4 rrg:lateralCrossReference doc:SRP_14-3-10 .
+_:e116 a rdf:Statement ; rdf:subject doc:DSRS_8-4 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_14-3-10 ; rrg:weight 1 .
+doc:DSRS_8-4 rrg:lateralCrossReference doc:SRP_19-3 .
+_:e117 a rdf:Statement ; rdf:subject doc:DSRS_8-4 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_19-3 ; rrg:weight 4 .
+doc:DSRS_9-3-4 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e118 a rdf:Statement ; rdf:subject doc:DSRS_9-3-4 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 6 .
+doc:DSRS_9-3-4 rrg:methodologyGuidance doc:RG_1-26 .
+_:e119 a rdf:Statement ; rdf:subject doc:DSRS_9-3-4 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-26 ; rrg:weight 6 .
+doc:DSRS_9-3-4 rrg:methodologyGuidance doc:RG_1-29 .
+_:e120 a rdf:Statement ; rdf:subject doc:DSRS_9-3-4 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-29 ; rrg:weight 5 .
+doc:DSRS_9-3-4 rrg:methodologyGuidance doc:RG_4-21 .
+_:e121 a rdf:Statement ; rdf:subject doc:DSRS_9-3-4 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_4-21 ; rrg:weight 5 .
+doc:DSRS_9-3-6_section_fallback rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e122 a rdf:Statement ; rdf:subject doc:DSRS_9-3-6_section_fallback ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 9 .
+doc:DSRS_9-3-6_section_fallback rrg:methodologyGuidance doc:RG_1-29 .
+_:e123 a rdf:Statement ; rdf:subject doc:DSRS_9-3-6_section_fallback ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-29 ; rrg:weight 8 .
+doc:DSRS_9-3-6_section_fallback rrg:lateralCrossReference doc:SRP_17-5 .
+_:e124 a rdf:Statement ; rdf:subject doc:DSRS_9-3-6_section_fallback ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_17-5 ; rrg:weight 1 .
+doc:RG_1-100 rrg:lateralCrossReference doc:RG_1-29 .
+_:e125 a rdf:Statement ; rdf:subject doc:RG_1-100 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:RG_1-29 ; rrg:weight 1 .
+doc:RG_1-100 rrg:lateralCrossReference doc:SRP_3-7-2 .
+_:e126 a rdf:Statement ; rdf:subject doc:RG_1-100 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_3-7-2 ; rrg:weight 1 .
+doc:RG_1-143 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e127 a rdf:Statement ; rdf:subject doc:RG_1-143 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 1 .
+doc:RG_1-145 rrg:lateralCrossReference doc:RG_1-23 .
+_:e128 a rdf:Statement ; rdf:subject doc:RG_1-145 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:RG_1-23 ; rrg:weight 1 .
+doc:RG_1-147 rrg:methodologyGuidance doc:RG_1-84 .
+_:e129 a rdf:Statement ; rdf:subject doc:RG_1-147 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-84 ; rrg:weight 1 .
+doc:RG_1-183 rrg:methodologyGuidance doc:RG_1-145 .
+_:e130 a rdf:Statement ; rdf:subject doc:RG_1-183 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-145 ; rrg:weight 1 .
+doc:RG_1-183 rrg:lateralCrossReference doc:SRP_15-0-3 .
+_:e131 a rdf:Statement ; rdf:subject doc:RG_1-183 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_15-0-3 ; rrg:weight 5 .
+doc:RG_1-183 rrg:lateralCrossReference doc:SRP_2-3-4 .
+_:e132 a rdf:Statement ; rdf:subject doc:RG_1-183 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_2-3-4 ; rrg:weight 1 .
+doc:RG_1-198 rrg:lateralCrossReference doc:RG_1-138 .
+_:e133 a rdf:Statement ; rdf:subject doc:RG_1-198 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:RG_1-138 ; rrg:weight 1 .
+doc:RG_1-198 rrg:methodologyGuidance doc:RG_1-138 .
+_:e134 a rdf:Statement ; rdf:subject doc:RG_1-198 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-138 ; rrg:weight 1 .
+doc:RG_1-20 rrg:methodologyGuidance doc:RG_1-100 .
+_:e135 a rdf:Statement ; rdf:subject doc:RG_1-20 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-100 ; rrg:weight 2 .
+doc:RG_1-20 rrg:lateralCrossReference doc:RG_1-61 .
+_:e136 a rdf:Statement ; rdf:subject doc:RG_1-20 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:RG_1-61 ; rrg:weight 1 .
+doc:RG_1-20 rrg:lateralCrossReference doc:SRP_13-2-1 .
+_:e137 a rdf:Statement ; rdf:subject doc:RG_1-20 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_13-2-1 ; rrg:weight 1 .
+doc:RG_1-206 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e138 a rdf:Statement ; rdf:subject doc:RG_1-206 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 2 .
+doc:RG_1-206 rrg:lateralCrossReference doc:RG_1-145 .
+_:e139 a rdf:Statement ; rdf:subject doc:RG_1-206 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:RG_1-145 ; rrg:weight 3 .
+doc:RG_1-206 rrg:lateralCrossReference doc:RG_1-194 .
+_:e140 a rdf:Statement ; rdf:subject doc:RG_1-206 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:RG_1-194 ; rrg:weight 2 .
+doc:RG_1-206 rrg:lateralCrossReference doc:SRP_2-4-12 .
+_:e141 a rdf:Statement ; rdf:subject doc:RG_1-206 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_2-4-12 ; rrg:weight 1 .
+doc:RG_1-206 rrg:lateralCrossReference doc:SRP_2-5-1 .
+_:e142 a rdf:Statement ; rdf:subject doc:RG_1-206 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_2-5-1 ; rrg:weight 1 .
+doc:RG_1-216 rrg:methodologyGuidance doc:RG_1-57 .
+_:e143 a rdf:Statement ; rdf:subject doc:RG_1-216 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-57 ; rrg:weight 3 .
+doc:RG_1-23 rrg:lateralCrossReference doc:RG_4-21 .
+_:e144 a rdf:Statement ; rdf:subject doc:RG_1-23 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:RG_4-21 ; rrg:weight 1 .
+doc:RG_1-29 rrg:methodologyGuidance doc:RG_1-100 .
+_:e145 a rdf:Statement ; rdf:subject doc:RG_1-29 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-100 ; rrg:weight 5 .
+doc:RG_1-29 rrg:methodologyGuidance doc:RG_1-143 .
+_:e146 a rdf:Statement ; rdf:subject doc:RG_1-29 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-143 ; rrg:weight 1 .
+doc:RG_1-29 rrg:methodologyGuidance doc:RG_1-32 .
+_:e147 a rdf:Statement ; rdf:subject doc:RG_1-29 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-32 ; rrg:weight 1 .
+doc:RG_1-29 rrg:lateralCrossReference doc:RG_1-68 .
+_:e148 a rdf:Statement ; rdf:subject doc:RG_1-29 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:RG_1-68 ; rrg:weight 1 .
+doc:RG_1-29 rrg:methodologyGuidance doc:RG_1-97 .
+_:e149 a rdf:Statement ; rdf:subject doc:RG_1-29 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-97 ; rrg:weight 1 .
+doc:RG_1-29 rrg:lateralCrossReference doc:SRP_13-2-2 .
+_:e150 a rdf:Statement ; rdf:subject doc:RG_1-29 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_13-2-2 ; rrg:weight 1 .
+doc:RG_1-32 rrg:lateralCrossReference doc:RG_1-155 .
+_:e151 a rdf:Statement ; rdf:subject doc:RG_1-32 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:RG_1-155 ; rrg:weight 1 .
+doc:RG_1-32 rrg:methodologyGuidance doc:RG_1-61 .
+_:e152 a rdf:Statement ; rdf:subject doc:RG_1-32 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-61 ; rrg:weight 1 .
+doc:RG_1-33 rrg:methodologyGuidance doc:RG_1-28 .
+_:e153 a rdf:Statement ; rdf:subject doc:RG_1-33 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-28 ; rrg:weight 1 .
+doc:RG_1-45 rrg:methodologyGuidance doc:RG_1-97 .
+_:e154 a rdf:Statement ; rdf:subject doc:RG_1-45 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-97 ; rrg:weight 1 .
+doc:RG_1-57 rrg:methodologyGuidance doc:RG_1-29 .
+_:e155 a rdf:Statement ; rdf:subject doc:RG_1-57 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-29 ; rrg:weight 1 .
+doc:RG_1-57 rrg:methodologyGuidance doc:RG_1-84 .
+_:e156 a rdf:Statement ; rdf:subject doc:RG_1-57 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-84 ; rrg:weight 2 .
+doc:RG_1-59 rrg:methodologyGuidance doc:RG_1-143 .
+_:e157 a rdf:Statement ; rdf:subject doc:RG_1-59 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-143 ; rrg:weight 3 .
+doc:RG_1-59 rrg:lateralCrossReference doc:SRP_13-2-1 .
+_:e158 a rdf:Statement ; rdf:subject doc:RG_1-59 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_13-2-1 ; rrg:weight 1 .
+doc:RG_1-61 rrg:lateralCrossReference doc:SRP_3-7-2 .
+_:e159 a rdf:Statement ; rdf:subject doc:RG_1-61 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_3-7-2 ; rrg:weight 2 .
+doc:RG_1-68 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e160 a rdf:Statement ; rdf:subject doc:RG_1-68 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 1 .
+doc:RG_1-68 rrg:methodologyGuidance doc:RG_1-160 .
+_:e161 a rdf:Statement ; rdf:subject doc:RG_1-68 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-160 ; rrg:weight 2 .
+doc:RG_1-68 rrg:methodologyGuidance doc:RG_1-29 .
+_:e162 a rdf:Statement ; rdf:subject doc:RG_1-68 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-29 ; rrg:weight 1 .
+doc:RG_1-84 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e163 a rdf:Statement ; rdf:subject doc:RG_1-84 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 1 .
+doc:RG_1-84 rrg:methodologyGuidance doc:RG_1-44 .
+_:e164 a rdf:Statement ; rdf:subject doc:RG_1-84 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-44 ; rrg:weight 1 .
+doc:RG_1-97 rrg:methodologyGuidance doc:RG_1-100 .
+_:e165 a rdf:Statement ; rdf:subject doc:RG_1-97 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-100 ; rrg:weight 3 .
+doc:RG_1-97 rrg:methodologyGuidance doc:RG_1-145 .
+_:e166 a rdf:Statement ; rdf:subject doc:RG_1-97 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-145 ; rrg:weight 1 .
+doc:RG_1-97 rrg:methodologyGuidance doc:RG_1-32 .
+_:e167 a rdf:Statement ; rdf:subject doc:RG_1-97 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-32 ; rrg:weight 1 .
+doc:RG_1-97 rrg:methodologyGuidance doc:RG_1-53 .
+_:e168 a rdf:Statement ; rdf:subject doc:RG_1-97 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-53 ; rrg:weight 1 .
+doc:SRP_10-2 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e169 a rdf:Statement ; rdf:subject doc:SRP_10-2 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 2 .
+doc:SRP_10-2 rrg:methodologyGuidance doc:RG_1-68 .
+_:e170 a rdf:Statement ; rdf:subject doc:SRP_10-2 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-68 ; rrg:weight 2 .
+doc:SRP_10-3-6 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e171 a rdf:Statement ; rdf:subject doc:SRP_10-3-6 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 11 .
+doc:SRP_10-3-6 rrg:methodologyGuidance doc:RG_1-50 .
+_:e172 a rdf:Statement ; rdf:subject doc:SRP_10-3-6 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-50 ; rrg:weight 3 .
+doc:SRP_10-3-6 rrg:methodologyGuidance doc:RG_1-71 .
+_:e173 a rdf:Statement ; rdf:subject doc:SRP_10-3-6 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-71 ; rrg:weight 7 .
+doc:SRP_10-3-6 rrg:methodologyGuidance doc:RG_1-84 .
+_:e174 a rdf:Statement ; rdf:subject doc:SRP_10-3-6 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-84 ; rrg:weight 9 .
+doc:SRP_10-3-6 rrg:lateralCrossReference doc:SRP_5-2-3 .
+_:e175 a rdf:Statement ; rdf:subject doc:SRP_10-3-6 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_5-2-3 ; rrg:weight 2 .
+doc:SRP_10-4-1 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e176 a rdf:Statement ; rdf:subject doc:SRP_10-4-1 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 11 .
+doc:SRP_10-4-1 rrg:lateralCrossReference doc:SRP_11-3 .
+_:e177 a rdf:Statement ; rdf:subject doc:SRP_10-4-1 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_11-3 ; rrg:weight 8 .
+doc:SRP_10-4-1 rrg:lateralCrossReference doc:SRP_14-3-10 .
+_:e178 a rdf:Statement ; rdf:subject doc:SRP_10-4-1 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_14-3-10 ; rrg:weight 3 .
+doc:SRP_10-4-5 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e179 a rdf:Statement ; rdf:subject doc:SRP_10-4-5 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 8 .
+doc:SRP_10-4-5 rrg:lateralCrossReference doc:SRP_13-2-2 .
+_:e180 a rdf:Statement ; rdf:subject doc:SRP_10-4-5 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_13-2-2 ; rrg:weight 1 .
+doc:SRP_10-4-5 rrg:lateralCrossReference doc:SRP_3-7-1 .
+_:e181 a rdf:Statement ; rdf:subject doc:SRP_10-4-5 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_3-7-1 ; rrg:weight 2 .
+doc:SRP_10-4-5 rrg:lateralCrossReference doc:SRP_8-3-1 .
+_:e182 a rdf:Statement ; rdf:subject doc:SRP_10-4-5 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_8-3-1 ; rrg:weight 2 .
+doc:SRP_10-4-6 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e183 a rdf:Statement ; rdf:subject doc:SRP_10-4-6 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 2 .
+doc:SRP_11-2 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e184 a rdf:Statement ; rdf:subject doc:SRP_11-2 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 6 .
+doc:SRP_11-2 rrg:methodologyGuidance doc:RG_1-143 .
+_:e185 a rdf:Statement ; rdf:subject doc:SRP_11-2 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-143 ; rrg:weight 7 .
+doc:SRP_11-2 rrg:methodologyGuidance doc:RG_4-21 .
+_:e186 a rdf:Statement ; rdf:subject doc:SRP_11-2 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_4-21 ; rrg:weight 5 .
+doc:SRP_11-2 rrg:lateralCrossReference doc:SRP_10-4-1 .
+_:e187 a rdf:Statement ; rdf:subject doc:SRP_11-2 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_10-4-1 ; rrg:weight 1 .
+doc:SRP_11-2 rrg:lateralCrossReference doc:SRP_2-4-1 .
+_:e188 a rdf:Statement ; rdf:subject doc:SRP_11-2 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_2-4-1 ; rrg:weight 3 .
+doc:SRP_11-2 rrg:lateralCrossReference doc:SRP_2-4-12 .
+_:e189 a rdf:Statement ; rdf:subject doc:SRP_11-2 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_2-4-12 ; rrg:weight 2 .
+doc:SRP_11-2 rrg:lateralCrossReference doc:SRP_3-3-1 .
+_:e190 a rdf:Statement ; rdf:subject doc:SRP_11-2 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_3-3-1 ; rrg:weight 2 .
+doc:SRP_11-2 rrg:lateralCrossReference doc:SRP_3-4-2 .
+_:e191 a rdf:Statement ; rdf:subject doc:SRP_11-2 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_3-4-2 ; rrg:weight 1 .
+doc:SRP_11-2 rrg:lateralCrossReference doc:SRP_3-7-1 .
+_:e192 a rdf:Statement ; rdf:subject doc:SRP_11-2 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_3-7-1 ; rrg:weight 1 .
+doc:SRP_11-3 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e193 a rdf:Statement ; rdf:subject doc:SRP_11-3 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 2 .
+doc:SRP_11-3 rrg:methodologyGuidance doc:RG_1-143 .
+_:e194 a rdf:Statement ; rdf:subject doc:SRP_11-3 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-143 ; rrg:weight 4 .
+doc:SRP_11-3 rrg:methodologyGuidance doc:RG_4-21 .
+_:e195 a rdf:Statement ; rdf:subject doc:SRP_11-3 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_4-21 ; rrg:weight 3 .
+doc:SRP_11-4 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e196 a rdf:Statement ; rdf:subject doc:SRP_11-4 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 1 .
+doc:SRP_11-4 rrg:methodologyGuidance doc:RG_1-143 .
+_:e197 a rdf:Statement ; rdf:subject doc:SRP_11-4 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-143 ; rrg:weight 2 .
+doc:SRP_11-4 rrg:methodologyGuidance doc:RG_4-21 .
+_:e198 a rdf:Statement ; rdf:subject doc:SRP_11-4 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_4-21 ; rrg:weight 2 .
+doc:SRP_11-4 rrg:lateralCrossReference doc:SRP_11-2 .
+_:e199 a rdf:Statement ; rdf:subject doc:SRP_11-4 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_11-2 ; rrg:weight 1 .
+doc:SRP_13-1-1 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e200 a rdf:Statement ; rdf:subject doc:SRP_13-1-1 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 16 .
+doc:SRP_13-1-1 rrg:methodologyGuidance doc:RG_1-206 .
+_:e201 a rdf:Statement ; rdf:subject doc:SRP_13-1-1 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-206 ; rrg:weight 2 .
+doc:SRP_13-1-1 rrg:methodologyGuidance doc:RG_1-8 .
+_:e202 a rdf:Statement ; rdf:subject doc:SRP_13-1-1 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-8 ; rrg:weight 15 .
+doc:SRP_13-1-1 rrg:lateralCrossReference doc:SRP_13-2-1 .
+_:e203 a rdf:Statement ; rdf:subject doc:SRP_13-1-1 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_13-2-1 ; rrg:weight 5 .
+doc:SRP_13-1-1 rrg:lateralCrossReference doc:SRP_13-3 .
+_:e204 a rdf:Statement ; rdf:subject doc:SRP_13-1-1 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_13-3 ; rrg:weight 1 .
+doc:SRP_13-1-1 rrg:lateralCrossReference doc:SRP_13-5-1 .
+_:e205 a rdf:Statement ; rdf:subject doc:SRP_13-1-1 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_13-5-1 ; rrg:weight 2 .
+doc:SRP_13-2-2 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e206 a rdf:Statement ; rdf:subject doc:SRP_13-2-2 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 3 .
+doc:SRP_13-2-2 rrg:methodologyGuidance doc:RG_1-8 .
+_:e207 a rdf:Statement ; rdf:subject doc:SRP_13-2-2 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-8 ; rrg:weight 5 .
+doc:SRP_13-2-2 rrg:lateralCrossReference doc:SRP_13-2-1 .
+_:e208 a rdf:Statement ; rdf:subject doc:SRP_13-2-2 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_13-2-1 ; rrg:weight 2 .
+doc:SRP_13-2-2 rrg:lateralCrossReference doc:SRP_13-5-1 .
+_:e209 a rdf:Statement ; rdf:subject doc:SRP_13-2-2 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_13-5-1 ; rrg:weight 2 .
+doc:SRP_13-3 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e210 a rdf:Statement ; rdf:subject doc:SRP_13-3 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 31 .
+doc:SRP_13-3 rrg:methodologyGuidance doc:RG_1-206 .
+_:e211 a rdf:Statement ; rdf:subject doc:SRP_13-3 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-206 ; rrg:weight 1 .
+doc:SRP_13-3 rrg:methodologyGuidance doc:RG_1-23 .
+_:e212 a rdf:Statement ; rdf:subject doc:SRP_13-3 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-23 ; rrg:weight 2 .
+doc:SRP_13-3 rrg:methodologyGuidance doc:RG_1-97 .
+_:e213 a rdf:Statement ; rdf:subject doc:SRP_13-3 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-97 ; rrg:weight 5 .
+doc:SRP_13-3 rrg:lateralCrossReference doc:SRP_13-2-2 .
+_:e214 a rdf:Statement ; rdf:subject doc:SRP_13-3 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_13-2-2 ; rrg:weight 2 .
+doc:SRP_13-3 rrg:lateralCrossReference doc:SRP_13-6 .
+_:e215 a rdf:Statement ; rdf:subject doc:SRP_13-3 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_13-6 ; rrg:weight 1 .
+doc:SRP_13-5-1 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e216 a rdf:Statement ; rdf:subject doc:SRP_13-5-1 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 2 .
+doc:SRP_13-5-1 rrg:methodologyGuidance doc:RG_1-33 .
+_:e217 a rdf:Statement ; rdf:subject doc:SRP_13-5-1 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-33 ; rrg:weight 2 .
+doc:SRP_13-6 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e218 a rdf:Statement ; rdf:subject doc:SRP_13-6 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 1 .
+doc:SRP_14-2 rrg:methodologyGuidance doc:RG_1-68 .
+_:e219 a rdf:Statement ; rdf:subject doc:SRP_14-2 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-68 ; rrg:weight 2 .
+doc:SRP_14-3-10 rrg:methodologyGuidance doc:RG_1-143 .
+_:e220 a rdf:Statement ; rdf:subject doc:SRP_14-3-10 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-143 ; rrg:weight 1 .
+doc:SRP_14-3-10 rrg:methodologyGuidance doc:RG_1-206 .
+_:e221 a rdf:Statement ; rdf:subject doc:SRP_14-3-10 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-206 ; rrg:weight 1 .
+doc:SRP_15-0-3 rrg:methodologyGuidance doc:RG_1-68 .
+_:e222 a rdf:Statement ; rdf:subject doc:SRP_15-0-3 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-68 ; rrg:weight 1 .
+doc:SRP_15-0-3 rrg:lateralCrossReference doc:SRP_2-3-4 .
+_:e223 a rdf:Statement ; rdf:subject doc:SRP_15-0-3 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_2-3-4 ; rrg:weight 1 .
+doc:SRP_15-4-8 rrg:lateralCrossReference doc:SRP_14-2 .
+_:e224 a rdf:Statement ; rdf:subject doc:SRP_15-4-8 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_14-2 ; rrg:weight 1 .
+doc:SRP_16-0 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e225 a rdf:Statement ; rdf:subject doc:SRP_16-0 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 1 .
+doc:SRP_17-5 rrg:methodologyGuidance doc:RG_1-28 .
+_:e226 a rdf:Statement ; rdf:subject doc:SRP_17-5 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-28 ; rrg:weight 1 .
+doc:SRP_19-3 rrg:methodologyGuidance doc:RG_1-61 .
+_:e227 a rdf:Statement ; rdf:subject doc:SRP_19-3 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-61 ; rrg:weight 1 .
+doc:SRP_19-3 rrg:methodologyGuidance doc:RG_1-8 .
+_:e228 a rdf:Statement ; rdf:subject doc:SRP_19-3 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-8 ; rrg:weight 1 .
+doc:SRP_19-3 rrg:lateralCrossReference doc:SRP_10-3-6 .
+_:e229 a rdf:Statement ; rdf:subject doc:SRP_19-3 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_10-3-6 ; rrg:weight 2 .
+doc:SRP_19-3 rrg:lateralCrossReference doc:SRP_2-4-1 .
+_:e230 a rdf:Statement ; rdf:subject doc:SRP_19-3 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_2-4-1 ; rrg:weight 1 .
+doc:SRP_2-3-1 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e231 a rdf:Statement ; rdf:subject doc:SRP_2-3-1 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 38 .
+doc:SRP_2-3-1 rrg:methodologyGuidance doc:RG_1-206 .
+_:e232 a rdf:Statement ; rdf:subject doc:SRP_2-3-1 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-206 ; rrg:weight 2 .
+doc:SRP_2-3-1 rrg:methodologyGuidance doc:RG_1-76 .
+_:e233 a rdf:Statement ; rdf:subject doc:SRP_2-3-1 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-76 ; rrg:weight 34 .
+doc:SRP_2-3-2 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e234 a rdf:Statement ; rdf:subject doc:SRP_2-3-2 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 2 .
+doc:SRP_2-3-2 rrg:methodologyGuidance doc:RG_1-206 .
+_:e235 a rdf:Statement ; rdf:subject doc:SRP_2-3-2 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-206 ; rrg:weight 2 .
+doc:SRP_2-3-2 rrg:methodologyGuidance doc:RG_1-23 .
+_:e236 a rdf:Statement ; rdf:subject doc:SRP_2-3-2 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-23 ; rrg:weight 6 .
+doc:SRP_2-3-2 rrg:methodologyGuidance doc:RG_1-76 .
+_:e237 a rdf:Statement ; rdf:subject doc:SRP_2-3-2 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-76 ; rrg:weight 4 .
+doc:SRP_2-3-3 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e238 a rdf:Statement ; rdf:subject doc:SRP_2-3-3 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 2 .
+doc:SRP_2-3-3 rrg:methodologyGuidance doc:RG_1-23 .
+_:e239 a rdf:Statement ; rdf:subject doc:SRP_2-3-3 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-23 ; rrg:weight 8 .
+doc:SRP_2-3-3 rrg:lateralCrossReference doc:SRP_2-3-4 .
+_:e240 a rdf:Statement ; rdf:subject doc:SRP_2-3-3 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_2-3-4 ; rrg:weight 2 .
+doc:SRP_2-3-3 rrg:lateralCrossReference doc:SRP_2-3-5 .
+_:e241 a rdf:Statement ; rdf:subject doc:SRP_2-3-3 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_2-3-5 ; rrg:weight 1 .
+doc:SRP_2-3-4 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e242 a rdf:Statement ; rdf:subject doc:SRP_2-3-4 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 4 .
+doc:SRP_2-3-4 rrg:methodologyGuidance doc:RG_1-145 .
+_:e243 a rdf:Statement ; rdf:subject doc:SRP_2-3-4 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-145 ; rrg:weight 11 .
+doc:SRP_2-3-4 rrg:methodologyGuidance doc:RG_1-194 .
+_:e244 a rdf:Statement ; rdf:subject doc:SRP_2-3-4 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-194 ; rrg:weight 7 .
+doc:SRP_2-3-4 rrg:methodologyGuidance doc:RG_1-23 .
+_:e245 a rdf:Statement ; rdf:subject doc:SRP_2-3-4 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-23 ; rrg:weight 9 .
+doc:SRP_2-3-4 rrg:methodologyGuidance doc:RG_1-78 .
+_:e246 a rdf:Statement ; rdf:subject doc:SRP_2-3-4 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-78 ; rrg:weight 7 .
+doc:SRP_2-3-4 rrg:lateralCrossReference doc:SRP_2-3-3 .
+_:e247 a rdf:Statement ; rdf:subject doc:SRP_2-3-4 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_2-3-3 ; rrg:weight 1 .
+doc:SRP_2-3-5 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e248 a rdf:Statement ; rdf:subject doc:SRP_2-3-5 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 5 .
+doc:SRP_2-3-5 rrg:lateralCrossReference doc:RG_1-145 .
+_:e249 a rdf:Statement ; rdf:subject doc:SRP_2-3-5 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:RG_1-145 ; rrg:weight 1 .
+doc:SRP_2-3-5 rrg:methodologyGuidance doc:RG_1-206 .
+_:e250 a rdf:Statement ; rdf:subject doc:SRP_2-3-5 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-206 ; rrg:weight 7 .
+doc:SRP_2-3-5 rrg:methodologyGuidance doc:RG_1-23 .
+_:e251 a rdf:Statement ; rdf:subject doc:SRP_2-3-5 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-23 ; rrg:weight 11 .
+doc:SRP_2-3-5 rrg:lateralCrossReference doc:SRP_11-3 .
+_:e252 a rdf:Statement ; rdf:subject doc:SRP_2-3-5 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_11-3 ; rrg:weight 2 .
+doc:SRP_2-3-5 rrg:lateralCrossReference doc:SRP_2-3-3 .
+_:e253 a rdf:Statement ; rdf:subject doc:SRP_2-3-5 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_2-3-3 ; rrg:weight 4 .
+doc:SRP_2-4-1 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e254 a rdf:Statement ; rdf:subject doc:SRP_2-4-1 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 4 .
+doc:SRP_2-4-1 rrg:methodologyGuidance doc:RG_1-29 .
+_:e255 a rdf:Statement ; rdf:subject doc:SRP_2-4-1 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-29 ; rrg:weight 4 .
+doc:SRP_2-4-1 rrg:methodologyGuidance doc:RG_1-59 .
+_:e256 a rdf:Statement ; rdf:subject doc:SRP_2-4-1 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-59 ; rrg:weight 4 .
+doc:SRP_2-4-1 rrg:lateralCrossReference doc:SRP_3-4-2 .
+_:e257 a rdf:Statement ; rdf:subject doc:SRP_2-4-1 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_3-4-2 ; rrg:weight 3 .
+doc:SRP_2-4-12 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e258 a rdf:Statement ; rdf:subject doc:SRP_2-4-12 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 36 .
+doc:SRP_2-4-12 rrg:methodologyGuidance doc:RG_1-29 .
+_:e259 a rdf:Statement ; rdf:subject doc:SRP_2-4-12 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-29 ; rrg:weight 2 .
+doc:SRP_2-4-12 rrg:lateralCrossReference doc:SRP_2-4-13 .
+_:e260 a rdf:Statement ; rdf:subject doc:SRP_2-4-12 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_2-4-13 ; rrg:weight 10 .
+doc:SRP_2-4-13 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e261 a rdf:Statement ; rdf:subject doc:SRP_2-4-13 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 5 .
+doc:SRP_2-4-13 rrg:lateralCrossReference doc:SRP_11-2 .
+_:e262 a rdf:Statement ; rdf:subject doc:SRP_2-4-13 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_11-2 ; rrg:weight 7 .
+doc:SRP_2-4-2 rrg:lateralCrossReference doc:SRP_2-4-4 .
+_:e263 a rdf:Statement ; rdf:subject doc:SRP_2-4-2 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_2-4-4 ; rrg:weight 1 .
+doc:SRP_2-4-3 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e264 a rdf:Statement ; rdf:subject doc:SRP_2-4-3 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 9 .
+doc:SRP_2-4-3 rrg:methodologyGuidance doc:RG_1-29 .
+_:e265 a rdf:Statement ; rdf:subject doc:SRP_2-4-3 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-29 ; rrg:weight 6 .
+doc:SRP_2-4-3 rrg:methodologyGuidance doc:RG_1-59 .
+_:e266 a rdf:Statement ; rdf:subject doc:SRP_2-4-3 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-59 ; rrg:weight 9 .
+doc:SRP_2-4-3 rrg:lateralCrossReference doc:SRP_2-4-2 .
+_:e267 a rdf:Statement ; rdf:subject doc:SRP_2-4-3 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_2-4-2 ; rrg:weight 2 .
+doc:SRP_2-4-4 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e268 a rdf:Statement ; rdf:subject doc:SRP_2-4-4 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 6 .
+doc:SRP_2-4-4 rrg:methodologyGuidance doc:RG_1-29 .
+_:e269 a rdf:Statement ; rdf:subject doc:SRP_2-4-4 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-29 ; rrg:weight 6 .
+doc:SRP_2-4-4 rrg:methodologyGuidance doc:RG_1-59 .
+_:e270 a rdf:Statement ; rdf:subject doc:SRP_2-4-4 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-59 ; rrg:weight 6 .
+doc:SRP_2-4-5 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e271 a rdf:Statement ; rdf:subject doc:SRP_2-4-5 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 3 .
+doc:SRP_2-4-5 rrg:methodologyGuidance doc:RG_1-59 .
+_:e272 a rdf:Statement ; rdf:subject doc:SRP_2-4-5 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-59 ; rrg:weight 2 .
+doc:SRP_2-4-5 rrg:lateralCrossReference doc:SRP_2-4-6 .
+_:e273 a rdf:Statement ; rdf:subject doc:SRP_2-4-5 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_2-4-6 ; rrg:weight 1 .
+doc:SRP_2-4-6 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e274 a rdf:Statement ; rdf:subject doc:SRP_2-4-6 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 21 .
+doc:SRP_2-4-6 rrg:methodologyGuidance doc:RG_1-29 .
+_:e275 a rdf:Statement ; rdf:subject doc:SRP_2-4-6 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-29 ; rrg:weight 15 .
+doc:SRP_2-4-6 rrg:methodologyGuidance doc:RG_1-59 .
+_:e276 a rdf:Statement ; rdf:subject doc:SRP_2-4-6 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-59 ; rrg:weight 21 .
+doc:SRP_2-5-1 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e277 a rdf:Statement ; rdf:subject doc:SRP_2-5-1 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 11 .
+doc:SRP_2-5-1 rrg:methodologyGuidance doc:RG_1-206 .
+_:e278 a rdf:Statement ; rdf:subject doc:SRP_2-5-1 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-206 ; rrg:weight 16 .
+doc:SRP_2-5-1 rrg:lateralCrossReference doc:SRP_2-5-2 .
+_:e279 a rdf:Statement ; rdf:subject doc:SRP_2-5-1 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_2-5-2 ; rrg:weight 2 .
+doc:SRP_2-5-1 rrg:lateralCrossReference doc:SRP_2-5-3 .
+_:e280 a rdf:Statement ; rdf:subject doc:SRP_2-5-1 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_2-5-3 ; rrg:weight 1 .
+doc:SRP_2-5-2 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e281 a rdf:Statement ; rdf:subject doc:SRP_2-5-2 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 12 .
+doc:SRP_2-5-2 rrg:methodologyGuidance doc:RG_1-138 .
+_:e282 a rdf:Statement ; rdf:subject doc:SRP_2-5-2 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-138 ; rrg:weight 6 .
+doc:SRP_2-5-2 rrg:methodologyGuidance doc:RG_1-198 .
+_:e283 a rdf:Statement ; rdf:subject doc:SRP_2-5-2 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-198 ; rrg:weight 5 .
+doc:SRP_2-5-2 rrg:methodologyGuidance doc:RG_1-206 .
+_:e284 a rdf:Statement ; rdf:subject doc:SRP_2-5-2 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-206 ; rrg:weight 7 .
+doc:SRP_2-5-2 rrg:lateralCrossReference doc:SRP_2-4-6 .
+_:e285 a rdf:Statement ; rdf:subject doc:SRP_2-5-2 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_2-4-6 ; rrg:weight 6 .
+doc:SRP_2-5-2 rrg:lateralCrossReference doc:SRP_2-5-1 .
+_:e286 a rdf:Statement ; rdf:subject doc:SRP_2-5-2 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_2-5-1 ; rrg:weight 1 .
+doc:SRP_2-5-2 rrg:lateralCrossReference doc:SRP_3-7-1 .
+_:e287 a rdf:Statement ; rdf:subject doc:SRP_2-5-2 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_3-7-1 ; rrg:weight 4 .
+doc:SRP_2-5-3 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e288 a rdf:Statement ; rdf:subject doc:SRP_2-5-3 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 6 .
+doc:SRP_2-5-3 rrg:methodologyGuidance doc:RG_1-206 .
+_:e289 a rdf:Statement ; rdf:subject doc:SRP_2-5-3 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-206 ; rrg:weight 5 .
+doc:SRP_2-5-3 rrg:lateralCrossReference doc:SRP_2-5-1 .
+_:e290 a rdf:Statement ; rdf:subject doc:SRP_2-5-3 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_2-5-1 ; rrg:weight 1 .
+doc:SRP_2-5-3 rrg:lateralCrossReference doc:SRP_2-5-2 .
+_:e291 a rdf:Statement ; rdf:subject doc:SRP_2-5-3 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_2-5-2 ; rrg:weight 2 .
+doc:SRP_2-5-4 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e292 a rdf:Statement ; rdf:subject doc:SRP_2-5-4 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 14 .
+doc:SRP_2-5-4 rrg:methodologyGuidance doc:RG_1-138 .
+_:e293 a rdf:Statement ; rdf:subject doc:SRP_2-5-4 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-138 ; rrg:weight 10 .
+doc:SRP_2-5-4 rrg:methodologyGuidance doc:RG_1-198 .
+_:e294 a rdf:Statement ; rdf:subject doc:SRP_2-5-4 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-198 ; rrg:weight 8 .
+doc:SRP_2-5-4 rrg:methodologyGuidance doc:RG_1-206 .
+_:e295 a rdf:Statement ; rdf:subject doc:SRP_2-5-4 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-206 ; rrg:weight 2 .
+doc:SRP_2-5-4 rrg:methodologyGuidance doc:RG_1-28 .
+_:e296 a rdf:Statement ; rdf:subject doc:SRP_2-5-4 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-28 ; rrg:weight 3 .
+doc:SRP_2-5-4 rrg:lateralCrossReference doc:SRP_2-5-1 .
+_:e297 a rdf:Statement ; rdf:subject doc:SRP_2-5-4 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_2-5-1 ; rrg:weight 1 .
+doc:SRP_2-5-4 rrg:lateralCrossReference doc:SRP_2-5-3 .
+_:e298 a rdf:Statement ; rdf:subject doc:SRP_2-5-4 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_2-5-3 ; rrg:weight 1 .
+doc:SRP_2-5-4 rrg:lateralCrossReference doc:SRP_3-7-1 .
+_:e299 a rdf:Statement ; rdf:subject doc:SRP_2-5-4 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_3-7-1 ; rrg:weight 1 .
+doc:SRP_2-5-4 rrg:lateralCrossReference doc:SRP_3-8-5 .
+_:e300 a rdf:Statement ; rdf:subject doc:SRP_2-5-4 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_3-8-5 ; rrg:weight 1 .
+doc:SRP_3-12 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e301 a rdf:Statement ; rdf:subject doc:SRP_3-12 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 4 .
+doc:SRP_3-12 rrg:lateralCrossReference doc:SRP_3-9-3 .
+_:e302 a rdf:Statement ; rdf:subject doc:SRP_3-12 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_3-9-3 ; rrg:weight 3 .
+doc:SRP_3-3-1 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e303 a rdf:Statement ; rdf:subject doc:SRP_3-3-1 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 10 .
+doc:SRP_3-3-1 rrg:methodologyGuidance doc:RG_1-206 .
+_:e304 a rdf:Statement ; rdf:subject doc:SRP_3-3-1 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-206 ; rrg:weight 1 .
+doc:SRP_3-3-1 rrg:lateralCrossReference doc:SRP_2-3-1 .
+_:e305 a rdf:Statement ; rdf:subject doc:SRP_3-3-1 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_2-3-1 ; rrg:weight 9 .
+doc:SRP_3-3-1 rrg:lateralCrossReference doc:SRP_2-3-2 .
+_:e306 a rdf:Statement ; rdf:subject doc:SRP_3-3-1 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_2-3-2 ; rrg:weight 9 .
+doc:SRP_3-4-2 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e307 a rdf:Statement ; rdf:subject doc:SRP_3-4-2 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 8 .
+doc:SRP_3-4-2 rrg:lateralCrossReference doc:SRP_14-3-10 .
+_:e308 a rdf:Statement ; rdf:subject doc:SRP_3-4-2 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_14-3-10 ; rrg:weight 7 .
+doc:SRP_3-4-2 rrg:lateralCrossReference doc:SRP_2-4-12 .
+_:e309 a rdf:Statement ; rdf:subject doc:SRP_3-4-2 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_2-4-12 ; rrg:weight 8 .
+doc:SRP_3-4-2 rrg:lateralCrossReference doc:SRP_2-4-3 .
+_:e310 a rdf:Statement ; rdf:subject doc:SRP_3-4-2 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_2-4-3 ; rrg:weight 8 .
+doc:SRP_3-5-2 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e311 a rdf:Statement ; rdf:subject doc:SRP_3-5-2 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 5 .
+doc:SRP_3-5-2 rrg:methodologyGuidance doc:RG_1-138 .
+_:e312 a rdf:Statement ; rdf:subject doc:SRP_3-5-2 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-138 ; rrg:weight 2 .
+doc:SRP_3-7-1 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e313 a rdf:Statement ; rdf:subject doc:SRP_3-7-1 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 10 .
+doc:SRP_3-7-1 rrg:methodologyGuidance doc:RG_1-61 .
+_:e314 a rdf:Statement ; rdf:subject doc:SRP_3-7-1 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-61 ; rrg:weight 1 .
+doc:SRP_3-7-1 rrg:lateralCrossReference doc:SRP_2-5-2 .
+_:e315 a rdf:Statement ; rdf:subject doc:SRP_3-7-1 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_2-5-2 ; rrg:weight 9 .
+doc:SRP_3-7-1 rrg:lateralCrossReference doc:SRP_2-5-4 .
+_:e316 a rdf:Statement ; rdf:subject doc:SRP_3-7-1 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_2-5-4 ; rrg:weight 1 .
+doc:SRP_3-7-1 rrg:lateralCrossReference doc:SRP_3-7-2 .
+_:e317 a rdf:Statement ; rdf:subject doc:SRP_3-7-1 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_3-7-2 ; rrg:weight 3 .
+doc:SRP_3-7-2 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e318 a rdf:Statement ; rdf:subject doc:SRP_3-7-2 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 3 .
+doc:SRP_3-7-2 rrg:methodologyGuidance doc:RG_1-138 .
+_:e319 a rdf:Statement ; rdf:subject doc:SRP_3-7-2 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-138 ; rrg:weight 3 .
+doc:SRP_3-7-2 rrg:lateralCrossReference doc:SRP_3-7-1 .
+_:e320 a rdf:Statement ; rdf:subject doc:SRP_3-7-2 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_3-7-1 ; rrg:weight 1 .
+doc:SRP_3-8-5 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e321 a rdf:Statement ; rdf:subject doc:SRP_3-8-5 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 24 .
+doc:SRP_3-8-5 rrg:methodologyGuidance doc:RG_1-206 .
+_:e322 a rdf:Statement ; rdf:subject doc:SRP_3-8-5 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-206 ; rrg:weight 17 .
+doc:SRP_3-8-5 rrg:lateralCrossReference doc:SRP_13-2-1 .
+_:e323 a rdf:Statement ; rdf:subject doc:SRP_3-8-5 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_13-2-1 ; rrg:weight 1 .
+doc:SRP_3-8-5 rrg:lateralCrossReference doc:SRP_13-2-2 .
+_:e324 a rdf:Statement ; rdf:subject doc:SRP_3-8-5 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_13-2-2 ; rrg:weight 2 .
+doc:SRP_3-8-5 rrg:lateralCrossReference doc:SRP_17-5 .
+_:e325 a rdf:Statement ; rdf:subject doc:SRP_3-8-5 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_17-5 ; rrg:weight 1 .
+doc:SRP_3-8-5 rrg:lateralCrossReference doc:SRP_2-5-1 .
+_:e326 a rdf:Statement ; rdf:subject doc:SRP_3-8-5 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_2-5-1 ; rrg:weight 3 .
+doc:SRP_3-8-5 rrg:lateralCrossReference doc:SRP_2-5-2 .
+_:e327 a rdf:Statement ; rdf:subject doc:SRP_3-8-5 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_2-5-2 ; rrg:weight 1 .
+doc:SRP_3-8-5 rrg:lateralCrossReference doc:SRP_2-5-4 .
+_:e328 a rdf:Statement ; rdf:subject doc:SRP_3-8-5 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_2-5-4 ; rrg:weight 5 .
+doc:SRP_3-8-5 rrg:lateralCrossReference doc:SRP_3-7-1 .
+_:e329 a rdf:Statement ; rdf:subject doc:SRP_3-8-5 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_3-7-1 ; rrg:weight 11 .
+doc:SRP_3-8-5 rrg:lateralCrossReference doc:SRP_3-7-2 .
+_:e330 a rdf:Statement ; rdf:subject doc:SRP_3-8-5 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_3-7-2 ; rrg:weight 20 .
+doc:SRP_3-9-1 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e331 a rdf:Statement ; rdf:subject doc:SRP_3-9-1 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 7 .
+doc:SRP_3-9-1 rrg:methodologyGuidance doc:RG_1-71 .
+_:e332 a rdf:Statement ; rdf:subject doc:SRP_3-9-1 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-71 ; rrg:weight 1 .
+doc:SRP_3-9-1 rrg:lateralCrossReference doc:RG_1-84 .
+_:e333 a rdf:Statement ; rdf:subject doc:SRP_3-9-1 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:RG_1-84 ; rrg:weight 1 .
+doc:SRP_3-9-1 rrg:lateralCrossReference doc:SRP_3-7-2 .
+_:e334 a rdf:Statement ; rdf:subject doc:SRP_3-9-1 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_3-7-2 ; rrg:weight 1 .
+doc:SRP_3-9-1 rrg:lateralCrossReference doc:SRP_3-9-3 .
+_:e335 a rdf:Statement ; rdf:subject doc:SRP_3-9-1 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_3-9-3 ; rrg:weight 7 .
+doc:SRP_3-9-2 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e336 a rdf:Statement ; rdf:subject doc:SRP_3-9-2 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 20 .
+doc:SRP_3-9-2 rrg:methodologyGuidance doc:RG_1-20 .
+_:e337 a rdf:Statement ; rdf:subject doc:SRP_3-9-2 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-20 ; rrg:weight 21 .
+doc:SRP_3-9-2 rrg:methodologyGuidance doc:RG_1-29 .
+_:e338 a rdf:Statement ; rdf:subject doc:SRP_3-9-2 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-29 ; rrg:weight 18 .
+doc:SRP_3-9-3 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e339 a rdf:Statement ; rdf:subject doc:SRP_3-9-3 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 3 .
+doc:SRP_3-9-3 rrg:methodologyGuidance doc:RG_1-20 .
+_:e340 a rdf:Statement ; rdf:subject doc:SRP_3-9-3 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-20 ; rrg:weight 1 .
+doc:SRP_3-9-3 rrg:lateralCrossReference doc:SRP_3-9-2 .
+_:e341 a rdf:Statement ; rdf:subject doc:SRP_3-9-3 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_3-9-2 ; rrg:weight 1 .
+doc:SRP_3-9-5 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e342 a rdf:Statement ; rdf:subject doc:SRP_3-9-5 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 16 .
+doc:SRP_3-9-5 rrg:methodologyGuidance doc:RG_1-20 .
+_:e343 a rdf:Statement ; rdf:subject doc:SRP_3-9-5 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-20 ; rrg:weight 6 .
+doc:SRP_3-9-5 rrg:methodologyGuidance doc:RG_1-206 .
+_:e344 a rdf:Statement ; rdf:subject doc:SRP_3-9-5 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-206 ; rrg:weight 1 .
+doc:SRP_3-9-5 rrg:lateralCrossReference doc:SRP_3-9-2 .
+_:e345 a rdf:Statement ; rdf:subject doc:SRP_3-9-5 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_3-9-2 ; rrg:weight 12 .
+doc:SRP_3-9-5 rrg:lateralCrossReference doc:SRP_3-9-3 .
+_:e346 a rdf:Statement ; rdf:subject doc:SRP_3-9-5 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_3-9-3 ; rrg:weight 16 .
+doc:SRP_4-6 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e347 a rdf:Statement ; rdf:subject doc:SRP_4-6 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 4 .
+doc:SRP_4-6 rrg:lateralCrossReference doc:SRP_14-2 .
+_:e348 a rdf:Statement ; rdf:subject doc:SRP_4-6 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_14-2 ; rrg:weight 1 .
+doc:SRP_4-6 rrg:lateralCrossReference doc:SRP_15-0-3 .
+_:e349 a rdf:Statement ; rdf:subject doc:SRP_4-6 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_15-0-3 ; rrg:weight 1 .
+doc:SRP_5-2-3 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e350 a rdf:Statement ; rdf:subject doc:SRP_5-2-3 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 40 .
+doc:SRP_5-2-3 rrg:methodologyGuidance doc:RG_1-36 .
+_:e351 a rdf:Statement ; rdf:subject doc:SRP_5-2-3 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-36 ; rrg:weight 1 .
+doc:SRP_5-2-3 rrg:methodologyGuidance doc:RG_1-44 .
+_:e352 a rdf:Statement ; rdf:subject doc:SRP_5-2-3 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-44 ; rrg:weight 17 .
+doc:SRP_5-2-3 rrg:methodologyGuidance doc:RG_1-50 .
+_:e353 a rdf:Statement ; rdf:subject doc:SRP_5-2-3 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-50 ; rrg:weight 23 .
+doc:SRP_5-2-3 rrg:methodologyGuidance doc:RG_1-71 .
+_:e354 a rdf:Statement ; rdf:subject doc:SRP_5-2-3 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-71 ; rrg:weight 12 .
+doc:SRP_5-2-3 rrg:methodologyGuidance doc:RG_1-84 .
+_:e355 a rdf:Statement ; rdf:subject doc:SRP_5-2-3 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-84 ; rrg:weight 19 .
+doc:SRP_5-2-3 rrg:lateralCrossReference doc:SRP_15-4-8 .
+_:e356 a rdf:Statement ; rdf:subject doc:SRP_5-2-3 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_15-4-8 ; rrg:weight 1 .
+doc:SRP_6-4 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e357 a rdf:Statement ; rdf:subject doc:SRP_6-4 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 23 .
+doc:SRP_6-4 rrg:methodologyGuidance doc:RG_1-183 .
+_:e358 a rdf:Statement ; rdf:subject doc:SRP_6-4 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-183 ; rrg:weight 13 .
+doc:SRP_6-4 rrg:methodologyGuidance doc:RG_1-78 .
+_:e359 a rdf:Statement ; rdf:subject doc:SRP_6-4 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-78 ; rrg:weight 20 .
+doc:SRP_6-4 rrg:lateralCrossReference doc:SRP_16-0 .
+_:e360 a rdf:Statement ; rdf:subject doc:SRP_6-4 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_16-0 ; rrg:weight 2 .
+doc:SRP_8-1 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e361 a rdf:Statement ; rdf:subject doc:SRP_8-1 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 5 .
+doc:SRP_8-2 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e362 a rdf:Statement ; rdf:subject doc:SRP_8-2 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 13 .
+doc:SRP_8-2 rrg:methodologyGuidance doc:RG_1-155 .
+_:e363 a rdf:Statement ; rdf:subject doc:SRP_8-2 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-155 ; rrg:weight 9 .
+doc:SRP_8-2 rrg:methodologyGuidance doc:RG_1-160 .
+_:e364 a rdf:Statement ; rdf:subject doc:SRP_8-2 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-160 ; rrg:weight 12 .
+doc:SRP_8-2 rrg:methodologyGuidance doc:RG_1-32 .
+_:e365 a rdf:Statement ; rdf:subject doc:SRP_8-2 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-32 ; rrg:weight 8 .
+doc:SRP_9-1-1 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e366 a rdf:Statement ; rdf:subject doc:SRP_9-1-1 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 25 .
+doc:SRP_9-1-1 rrg:lateralCrossReference doc:SRP_14-3-10 .
+_:e367 a rdf:Statement ; rdf:subject doc:SRP_9-1-1 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_14-3-10 ; rrg:weight 1 .
+doc:SRP_9-1-2 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e368 a rdf:Statement ; rdf:subject doc:SRP_9-1-2 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 6 .
+doc:SRP_9-1-2 rrg:methodologyGuidance doc:RG_1-138 .
+_:e369 a rdf:Statement ; rdf:subject doc:SRP_9-1-2 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-138 ; rrg:weight 1 .
+doc:SRP_9-1-2 rrg:methodologyGuidance doc:RG_1-29 .
+_:e370 a rdf:Statement ; rdf:subject doc:SRP_9-1-2 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-29 ; rrg:weight 1 .
+doc:SRP_9-1-3 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e371 a rdf:Statement ; rdf:subject doc:SRP_9-1-3 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 12 .
+doc:SRP_9-1-3 rrg:methodologyGuidance doc:RG_1-138 .
+_:e372 a rdf:Statement ; rdf:subject doc:SRP_9-1-3 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-138 ; rrg:weight 1 .
+doc:SRP_9-1-3 rrg:methodologyGuidance doc:RG_1-26 .
+_:e373 a rdf:Statement ; rdf:subject doc:SRP_9-1-3 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-26 ; rrg:weight 12 .
+doc:SRP_9-1-3 rrg:methodologyGuidance doc:RG_1-29 .
+_:e374 a rdf:Statement ; rdf:subject doc:SRP_9-1-3 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-29 ; rrg:weight 12 .
+doc:SRP_9-1-3 rrg:lateralCrossReference doc:SRP_3-7-1 .
+_:e375 a rdf:Statement ; rdf:subject doc:SRP_9-1-3 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_3-7-1 ; rrg:weight 2 .
+doc:SRP_9-2-6 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e376 a rdf:Statement ; rdf:subject doc:SRP_9-2-6 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 7 .
+doc:SRP_9-2-6 rrg:methodologyGuidance doc:RG_1-143 .
+_:e377 a rdf:Statement ; rdf:subject doc:SRP_9-2-6 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-143 ; rrg:weight 6 .
+doc:SRP_9-2-6 rrg:methodologyGuidance doc:RG_1-155 .
+_:e378 a rdf:Statement ; rdf:subject doc:SRP_9-2-6 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-155 ; rrg:weight 2 .
+doc:SRP_9-2-6 rrg:methodologyGuidance doc:RG_1-29 .
+_:e379 a rdf:Statement ; rdf:subject doc:SRP_9-2-6 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-29 ; rrg:weight 3 .
+doc:SRP_9-2-6 rrg:methodologyGuidance doc:RG_1-59 .
+_:e380 a rdf:Statement ; rdf:subject doc:SRP_9-2-6 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-59 ; rrg:weight 1 .
+doc:SRP_9-2-7 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e381 a rdf:Statement ; rdf:subject doc:SRP_9-2-7 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 7 .
+doc:SRP_9-2-7 rrg:methodologyGuidance doc:RG_1-155 .
+_:e382 a rdf:Statement ; rdf:subject doc:SRP_9-2-7 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-155 ; rrg:weight 3 .
+doc:SRP_9-2-7 rrg:methodologyGuidance doc:RG_1-206 .
+_:e383 a rdf:Statement ; rdf:subject doc:SRP_9-2-7 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-206 ; rrg:weight 1 .
+doc:SRP_9-2-7 rrg:methodologyGuidance doc:RG_1-28 .
+_:e384 a rdf:Statement ; rdf:subject doc:SRP_9-2-7 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-28 ; rrg:weight 3 .
+doc:SRP_9-2-7 rrg:methodologyGuidance doc:RG_1-29 .
+_:e385 a rdf:Statement ; rdf:subject doc:SRP_9-2-7 ; rdf:predicate rrg:methodologyGuidance ; rdf:object doc:RG_1-29 ; rrg:weight 5 .
+doc:SRP_9-2-7 rrg:lateralCrossReference doc:SRP_13-2-1 .
+_:e386 a rdf:Statement ; rdf:subject doc:SRP_9-2-7 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_13-2-1 ; rrg:weight 2 .
+doc:SRP_9-2-7 rrg:lateralCrossReference doc:SRP_13-2-2 .
+_:e387 a rdf:Statement ; rdf:subject doc:SRP_9-2-7 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_13-2-2 ; rrg:weight 2 .
+doc:SRP_9-2-7 rrg:lateralCrossReference doc:SRP_14-3-10 .
+_:e388 a rdf:Statement ; rdf:subject doc:SRP_9-2-7 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_14-3-10 ; rrg:weight 2 .
+doc:SRP_9-2-7 rrg:lateralCrossReference doc:SRP_19-3 .
+_:e389 a rdf:Statement ; rdf:subject doc:SRP_9-2-7 ; rdf:predicate rrg:lateralCrossReference ; rdf:object doc:SRP_19-3 ; rrg:weight 3 .
+doc:SRP_9-3-3 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e390 a rdf:Statement ; rdf:subject doc:SRP_9-3-3 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 4 .
+doc:SRP_9-5-2 rrg:normativeBasis doc:10_CFR_Part_50 .
+_:e391 a rdf:Statement ; rdf:subject doc:SRP_9-5-2 ; rdf:predicate rrg:normativeBasis ; rdf:object doc:10_CFR_Part_50 ; rrg:weight 1 .

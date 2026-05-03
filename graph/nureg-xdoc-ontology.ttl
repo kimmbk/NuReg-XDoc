@@ -1,0 +1,74 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix rrg:  <https://regrag.org/ontology#> .
+
+# -----------------------------------------------------------------------------
+# Ontology header
+# -----------------------------------------------------------------------------
+<https://regrag.org/ontology> a owl:Ontology ;
+    rdfs:label "NuReg-XDoc Document-Level Reference Knowledge Graph Ontology" ;
+    owl:versionInfo "1.0" ;
+    rdfs:comment "Minimal OWL schema for a document-level regulatory reference KG. Nodes are regulatory documents; edges are typed inter-document references licensed by explicit clauses in the source documents." .
+
+# -----------------------------------------------------------------------------
+# Classes
+# -----------------------------------------------------------------------------
+rrg:RegulatoryDocument a owl:Class ;
+    rdfs:label "Regulatory Document" ;
+    rdfs:comment "A single regulatory document participating in the KG." .
+
+# -----------------------------------------------------------------------------
+# Datatype properties on RegulatoryDocument
+# -----------------------------------------------------------------------------
+rrg:docType a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain rrg:RegulatoryDocument ;
+    rdfs:range [
+        a rdfs:Datatype ;
+        owl:onDatatype xsd:string ;
+        owl:oneOf ( "10CFR" "SRP" "DSRS" "RG" )
+    ] ;
+    rdfs:label "document type" ;
+    rdfs:comment "Enumerated doctype: one of {10CFR, SRP, DSRS, RG}." .
+
+rrg:queryCount a owl:DatatypeProperty ;
+    rdfs:domain rrg:RegulatoryDocument ;
+    rdfs:range xsd:nonNegativeInteger ;
+    rdfs:label "query count" ;
+    rdfs:comment "Number of benchmark queries whose evidence chain touches this document." .
+
+# -----------------------------------------------------------------------------
+# Object properties: typed inter-document references
+# rrg:references is the superproperty; the three typed sub-properties are
+# licensed by distinct clause patterns in the source documents.
+# -----------------------------------------------------------------------------
+rrg:references a owl:ObjectProperty ;
+    rdfs:domain rrg:RegulatoryDocument ;
+    rdfs:range rrg:RegulatoryDocument ;
+    rdfs:label "references" ;
+    rdfs:comment "Asserts a typed inter-document reference between regulatory documents." .
+
+rrg:normativeBasis a owl:ObjectProperty ;
+    rdfs:subPropertyOf rrg:references ;
+    rdfs:label "normative basis" ;
+    rdfs:comment "Licensed by compliance clauses (e.g., 'shall comply with ...'). Review or methodology document to legal authority." .
+
+rrg:methodologyGuidance a owl:ObjectProperty ;
+    rdfs:subPropertyOf rrg:references ;
+    rdfs:label "methodology guidance" ;
+    rdfs:comment "Licensed by acceptable-method clauses (e.g., 'an acceptable method is ...'). Review document to methodology document." .
+
+rrg:lateralCrossReference a owl:ObjectProperty ;
+    rdfs:subPropertyOf rrg:references ;
+    rdfs:label "lateral cross-reference" ;
+    rdfs:comment "Licensed by 'see also' clauses. Between sections of the same role." .
+
+# -----------------------------------------------------------------------------
+# Edge weight (on reified statements)
+# -----------------------------------------------------------------------------
+rrg:weight a owl:DatatypeProperty ;
+    rdfs:domain rdf:Statement ;
+    rdfs:range xsd:positiveInteger ;
+    rdfs:label "edge weight" ;
+    rdfs:comment "Number of evidence chains that traverse the reified (src, pred, dst) edge." .

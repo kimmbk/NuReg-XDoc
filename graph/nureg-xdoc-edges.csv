@@ -1,0 +1,393 @@
+src,dst,reference_type,weight,example_query_ids
+10 CFR Part 50,RG 1.143,lateral_cross_reference,1,nuscale_0254_hard_002
+10 CFR Part 50,RG 1.145,lateral_cross_reference,2,nuscale_0010_medium_001;levy_0345_hard_002
+10 CFR Part 50,RG 1.194,lateral_cross_reference,2,nuscale_0010_medium_001;levy_0345_hard_002
+10 CFR Part 50,RG 1.29,methodology_guidance,1,levy_0378_medium_000
+10 CFR Part 50,RG 1.59,methodology_guidance,1,levy_0378_medium_000
+10 CFR Part 50,RG 1.61,methodology_guidance,1,nuscale_0033_medium_001
+10 CFR Part 50,RG 1.97,lateral_cross_reference,1,nuscale_0159_medium_001
+10 CFR Part 50,SRP 2.3.1,lateral_cross_reference,1,levy_0357_easy_000
+10 CFR Part 50,SRP 2.5.2,lateral_cross_reference,7,nuscale_0033_medium_000;nuscale_0036_medium_001;nuscale_0037_medium_001
+10 CFR Part 50,SRP 3.7.1,lateral_cross_reference,1,nuscale_0076_medium_001
+DSRS 10.2.3 (section fallback),10 CFR Part 50,normative_basis,4,nuscale_0278_easy_000;nuscale_0278_medium_001;nuscale_0279_easy_000
+DSRS 10.2.3 (section fallback),SRP 13.2.2,lateral_cross_reference,1,nuscale_0278_easy_000
+DSRS 10.2.3 (section fallback),SRP 19.3,lateral_cross_reference,2,nuscale_0278_easy_000;nuscale_0279_easy_000
+DSRS 11.1,10 CFR Part 50,normative_basis,15,nuscale_0297_easy_000;nuscale_0297_medium_001;nuscale_0297_hard_002
+DSRS 11.1,DSRS 11.2,lateral_cross_reference,1,nuscale_0299_hard_002
+DSRS 11.2,SRP 2.4.13,lateral_cross_reference,1,nuscale_0299_hard_002
+DSRS 12.2,10 CFR Part 50,normative_basis,29,nuscale_0303_medium_001;nuscale_0303_hard_002;nuscale_0304_easy_000
+DSRS 12.2,RG 1.143,methodology_guidance,15,nuscale_0303_hard_002;nuscale_0304_hard_002;nuscale_0306_easy_000
+DSRS 12.2,RG 1.183,methodology_guidance,28,nuscale_0303_easy_000;nuscale_0303_hard_002;nuscale_0304_easy_000
+DSRS 12.2,RG 1.26,methodology_guidance,11,nuscale_0303_hard_002;nuscale_0304_hard_002;nuscale_0306_easy_000
+DSRS 12.2,RG 1.29,methodology_guidance,2,nuscale_0306_easy_000;nuscale_0317_easy_000
+DSRS 14.2,RG 1.68,methodology_guidance,1,nuscale_0168_medium_001
+DSRS 14.2,SRP 14.2,lateral_cross_reference,1,nuscale_0332_medium_001
+DSRS 15.1.5 (section fallback),10 CFR Part 50,normative_basis,3,nuscale_0324_easy_000;nuscale_0325_medium_000;nuscale_0325_medium_001
+DSRS 15.1.5 (section fallback),DSRS 4.4 (section fallback),lateral_cross_reference,3,nuscale_0324_easy_000;nuscale_0325_medium_000;nuscale_0325_medium_001
+DSRS 15.1.5 (section fallback),SRP 14.2,lateral_cross_reference,3,nuscale_0324_easy_000;nuscale_0325_medium_000;nuscale_0325_medium_001
+DSRS 15.1.5 (section fallback),SRP 14.3.10,lateral_cross_reference,1,nuscale_0325_medium_000
+DSRS 15.2.6 (section fallback),10 CFR Part 50,normative_basis,8,nuscale_0326_easy_000;nuscale_0327_easy_000;nuscale_0327_medium_001
+DSRS 15.2.6 (section fallback),DSRS 4.4 (section fallback),lateral_cross_reference,4,nuscale_0326_easy_000;nuscale_0327_easy_000;nuscale_0327_hard_002
+DSRS 15.2.6 (section fallback),RG 1.53,methodology_guidance,8,nuscale_0326_easy_000;nuscale_0327_easy_000;nuscale_0327_medium_001
+DSRS 15.2.7 (section fallback),10 CFR Part 50,normative_basis,2,nuscale_0330_easy_000;nuscale_0330_medium_001
+DSRS 15.2.7 (section fallback),RG 1.206,methodology_guidance,2,nuscale_0330_easy_000;nuscale_0330_medium_001
+DSRS 15.2.7 (section fallback),RG 1.53,methodology_guidance,2,nuscale_0330_easy_000;nuscale_0330_medium_001
+DSRS 15.2.8 (section fallback),10 CFR Part 50,normative_basis,6,nuscale_0331_easy_000;nuscale_0331_medium_001;nuscale_0332_easy_000
+DSRS 15.2.8 (section fallback),DSRS 14.2,lateral_cross_reference,1,nuscale_0332_medium_001
+DSRS 15.2.8 (section fallback),DSRS 4.4 (section fallback),lateral_cross_reference,1,nuscale_0332_medium_001
+DSRS 15.2.8 (section fallback),DSRS 5.3.1 (section fallback),lateral_cross_reference,1,nuscale_0331_medium_001
+DSRS 15.2.8 (section fallback),SRP 3.9.1,lateral_cross_reference,1,nuscale_0333_easy_000
+DSRS 15.2.8 (section fallback),SRP 3.9.2,lateral_cross_reference,1,nuscale_0333_easy_000
+DSRS 15.2.8 (section fallback),SRP 3.9.3,lateral_cross_reference,1,nuscale_0333_easy_000
+DSRS 15.2.8 (section fallback),SRP 5.2.3,lateral_cross_reference,1,nuscale_0331_medium_001
+DSRS 3.11,10 CFR Part 50,normative_basis,32,nuscale_0114_easy_000;nuscale_0114_medium_001;nuscale_0115_easy_000
+DSRS 3.11,RG 1.97,methodology_guidance,15,nuscale_0115_medium_001;nuscale_0115_hard_002;nuscale_0116_medium_000
+DSRS 3.7.1,SRP 2.5.2,lateral_cross_reference,2,nuscale_0032_medium_000;nuscale_0036_easy_000
+DSRS 3.7.2,10 CFR Part 50,normative_basis,32,nuscale_0025_easy_000;nuscale_0025_medium_001;nuscale_0026_medium_000
+DSRS 3.7.2,DSRS 3.7.1,lateral_cross_reference,20,nuscale_0025_easy_000;nuscale_0025_medium_001;nuscale_0026_medium_000
+DSRS 3.7.2,DSRS 3.8.4,lateral_cross_reference,9,nuscale_0025_easy_000;nuscale_0025_medium_001;nuscale_0026_medium_000
+DSRS 3.7.2,DSRS 3.8.5,lateral_cross_reference,7,nuscale_0025_easy_000;nuscale_0025_medium_001;nuscale_0026_medium_000
+DSRS 3.7.2,SRP 19.0,lateral_cross_reference,1,nuscale_0034_medium_000
+DSRS 3.7.2,SRP 2.5.4,lateral_cross_reference,1,nuscale_0034_medium_000
+DSRS 3.7.2,SRP 3.7.1,lateral_cross_reference,1,nuscale_0035_medium_001
+DSRS 3.7.2,SRP 3.8.5,lateral_cross_reference,1,nuscale_0035_medium_001
+DSRS 3.8.2 (section fallback),10 CFR Part 50,normative_basis,24,nuscale_0040_easy_000;nuscale_0041_easy_000;nuscale_0041_medium_001
+DSRS 3.8.2 (section fallback),RG 1.206,methodology_guidance,4,nuscale_0048_easy_000;nuscale_0048_medium_001;nuscale_0049_medium_001
+DSRS 3.8.2 (section fallback),RG 1.216,methodology_guidance,5,nuscale_0040_easy_000;nuscale_0045_easy_000;nuscale_0048_easy_000
+DSRS 3.8.2 (section fallback),RG 1.57,methodology_guidance,12,nuscale_0040_easy_000;nuscale_0045_easy_000;nuscale_0046_medium_000
+DSRS 3.8.2 (section fallback),RG 1.71,methodology_guidance,4,nuscale_0040_easy_000;nuscale_0045_easy_000;nuscale_0052_medium_001
+DSRS 3.8.2 (section fallback),SRP 3.9.1,lateral_cross_reference,2,nuscale_0051_medium_001;nuscale_0052_easy_000
+DSRS 3.8.4,10 CFR Part 50,normative_basis,30,nuscale_0053_easy_000;nuscale_0053_medium_001;nuscale_0053_hard_002
+DSRS 3.8.4,RG 1.143,methodology_guidance,11,nuscale_0053_easy_000;nuscale_0053_medium_001;nuscale_0053_hard_002
+DSRS 3.8.4,RG 1.160,methodology_guidance,1,nuscale_0053_hard_002
+DSRS 3.8.4,RG 1.206,methodology_guidance,5,nuscale_0054_easy_000;nuscale_0054_hard_002;nuscale_0055_easy_000
+DSRS 3.8.4,RG 1.221,methodology_guidance,2,nuscale_0053_hard_002;nuscale_0055_medium_001
+DSRS 3.8.4,SRP 2.5.2,lateral_cross_reference,1,nuscale_0036_hard_002
+DSRS 3.8.4,SRP 3.9.2,lateral_cross_reference,1,nuscale_0053_medium_001
+DSRS 4.4 (section fallback),10 CFR Part 50,normative_basis,6,nuscale_0131_easy_000;nuscale_0132_easy_000;nuscale_0133_easy_000
+DSRS 4.4 (section fallback),RG 1.68,methodology_guidance,6,nuscale_0131_easy_000;nuscale_0132_easy_000;nuscale_0133_easy_000
+DSRS 4.4 (section fallback),SRP 14.2,lateral_cross_reference,7,nuscale_0133_easy_000;nuscale_0134_easy_000;nuscale_0135_medium_000
+DSRS 5.2.4 (section fallback),10 CFR Part 50,normative_basis,14,nuscale_0153_easy_000;nuscale_0153_medium_001;nuscale_0153_hard_002
+DSRS 5.2.4 (section fallback),RG 1.147,methodology_guidance,10,nuscale_0153_easy_000;nuscale_0153_hard_002;nuscale_0154_medium_000
+DSRS 5.2.5 (section fallback),10 CFR Part 50,normative_basis,2,nuscale_0159_easy_000;nuscale_0159_medium_001
+DSRS 5.2.5 (section fallback),RG 1.29,methodology_guidance,2,nuscale_0159_easy_000;nuscale_0159_medium_001
+DSRS 5.2.5 (section fallback),RG 1.45,methodology_guidance,2,nuscale_0159_easy_000;nuscale_0159_medium_001
+DSRS 5.3.1 (section fallback),10 CFR Part 50,normative_basis,7,nuscale_0160_easy_000;nuscale_0161_easy_000;nuscale_0161_medium_001
+DSRS 5.3.1 (section fallback),RG 1.28,methodology_guidance,3,nuscale_0160_easy_000;nuscale_0161_medium_001;nuscale_0161_hard_002
+DSRS 5.3.1 (section fallback),RG 1.44,methodology_guidance,3,nuscale_0160_easy_000;nuscale_0161_medium_001;nuscale_0161_hard_002
+DSRS 5.3.1 (section fallback),RG 1.50,methodology_guidance,2,nuscale_0160_easy_000;nuscale_0161_medium_001
+DSRS 5.3.1 (section fallback),RG 1.65,methodology_guidance,2,nuscale_0162_medium_001;nuscale_0163_easy_000
+DSRS 5.4.7 (section fallback),10 CFR Part 50,normative_basis,11,nuscale_0164_easy_000;nuscale_0164_medium_001;nuscale_0165_easy_000
+DSRS 5.4.7 (section fallback),DSRS 14.2,lateral_cross_reference,3,nuscale_0167_medium_001;nuscale_0168_medium_001;nuscale_0168_hard_002
+DSRS 5.4.7 (section fallback),DSRS 6.2.4,lateral_cross_reference,1,nuscale_0165_medium_001
+DSRS 5.4.7 (section fallback),DSRS 6.3 (section fallback),lateral_cross_reference,1,nuscale_0166_medium_001
+DSRS 5.4.7 (section fallback),RG 1.26,methodology_guidance,3,nuscale_0164_easy_000;nuscale_0166_easy_000;nuscale_0167_medium_001
+DSRS 5.4.7 (section fallback),RG 1.29,methodology_guidance,2,nuscale_0164_easy_000;nuscale_0166_easy_000
+DSRS 5.4.7 (section fallback),RG 1.68,methodology_guidance,1,nuscale_0168_hard_002
+DSRS 5.4.7 (section fallback),SRP 14.3.10,lateral_cross_reference,1,nuscale_0167_medium_001
+DSRS 6.2.1 (section fallback),10 CFR Part 50,normative_basis,8,nuscale_0169_easy_000;nuscale_0171_easy_000;nuscale_0172_easy_000
+DSRS 6.2.1 (section fallback),RG 1.143,methodology_guidance,1,nuscale_0174_easy_000
+DSRS 6.2.1 (section fallback),RG 1.183,methodology_guidance,1,nuscale_0174_easy_000
+DSRS 6.2.1 (section fallback),RG 1.71,methodology_guidance,1,nuscale_0174_easy_000
+DSRS 6.2.1 (section fallback),SRP 3.9.3,lateral_cross_reference,1,nuscale_0172_easy_000
+DSRS 6.2.2 (section fallback),10 CFR Part 50,normative_basis,13,nuscale_0178_medium_000;nuscale_0178_medium_001;nuscale_0179_easy_000
+DSRS 6.2.2 (section fallback),RG 1.82,methodology_guidance,13,nuscale_0178_medium_000;nuscale_0178_medium_001;nuscale_0179_easy_000
+DSRS 6.2.4,10 CFR Part 50,normative_basis,13,nuscale_0184_easy_000;nuscale_0184_medium_001;nuscale_0184_hard_002
+DSRS 6.2.4,RG 1.155,methodology_guidance,6,nuscale_0185_easy_000;nuscale_0185_medium_001;nuscale_0185_hard_002
+DSRS 6.2.4,RG 1.26,methodology_guidance,6,nuscale_0185_easy_000;nuscale_0185_medium_001;nuscale_0185_hard_002
+DSRS 6.2.4,RG 1.29,methodology_guidance,6,nuscale_0185_easy_000;nuscale_0185_medium_001;nuscale_0185_hard_002
+DSRS 6.2.5 (section fallback),10 CFR Part 50,normative_basis,17,nuscale_0189_medium_000;nuscale_0189_medium_001;nuscale_0190_medium_000
+DSRS 6.2.5 (section fallback),RG 1.216,methodology_guidance,9,nuscale_0189_medium_000;nuscale_0189_medium_001;nuscale_0191_easy_000
+DSRS 6.2.5 (section fallback),SRP 14.3.10,lateral_cross_reference,2,nuscale_0192_medium_001;nuscale_0192_hard_002
+DSRS 6.2.5 (section fallback),SRP 19.0,lateral_cross_reference,2,nuscale_0189_medium_001;nuscale_0192_hard_002
+DSRS 6.2.6 (section fallback),10 CFR Part 50,normative_basis,29,nuscale_0197_medium_000;nuscale_0197_medium_001;nuscale_0198_easy_000
+DSRS 6.2.6 (section fallback),RG 1.163,methodology_guidance,28,nuscale_0197_medium_000;nuscale_0197_medium_001;nuscale_0198_easy_000
+DSRS 6.3 (section fallback),10 CFR Part 50,normative_basis,1,nuscale_0212_medium_000
+DSRS 6.3 (section fallback),DSRS 14.2,lateral_cross_reference,1,nuscale_0212_medium_001
+DSRS 6.3 (section fallback),RG 1.68,methodology_guidance,2,nuscale_0212_medium_000;nuscale_0212_medium_001
+DSRS 6.3 (section fallback),RG 1.82,methodology_guidance,1,nuscale_0166_medium_001
+DSRS 6.6 (section fallback),10 CFR Part 50,normative_basis,3,nuscale_0224_easy_000;nuscale_0224_medium_001;nuscale_0224_hard_002
+DSRS 6.6 (section fallback),RG 1.147,methodology_guidance,3,nuscale_0224_easy_000;nuscale_0224_medium_001;nuscale_0224_hard_002
+DSRS 6.6 (section fallback),SRP 13.2.2,lateral_cross_reference,1,nuscale_0224_medium_001
+DSRS 8.3.2 (section fallback),10 CFR Part 50,normative_basis,6,nuscale_0233_easy_000;nuscale_0234_easy_000;nuscale_0235_easy_000
+DSRS 8.3.2 (section fallback),DSRS 3.11,lateral_cross_reference,3,nuscale_0236_easy_000;nuscale_0236_medium_001;nuscale_0236_hard_002
+DSRS 8.3.2 (section fallback),DSRS 8.1 (section fallback),lateral_cross_reference,1,nuscale_0236_hard_002
+DSRS 8.3.2 (section fallback),RG 1.32,methodology_guidance,2,nuscale_0233_easy_000;nuscale_0236_hard_002
+DSRS 8.4,10 CFR Part 50,normative_basis,6,nuscale_0237_easy_000;nuscale_0237_medium_001;nuscale_0237_hard_002
+DSRS 8.4,RG 1.155,methodology_guidance,6,nuscale_0237_easy_000;nuscale_0237_medium_001;nuscale_0237_hard_002
+DSRS 8.4,SRP 14.3.10,lateral_cross_reference,1,nuscale_0238_hard_002
+DSRS 8.4,SRP 19.3,lateral_cross_reference,4,nuscale_0237_easy_000;nuscale_0237_medium_001;nuscale_0237_hard_002
+DSRS 9.3.4,10 CFR Part 50,normative_basis,6,nuscale_0269_medium_000;nuscale_0269_medium_001;nuscale_0270_easy_000
+DSRS 9.3.4,RG 1.26,methodology_guidance,6,nuscale_0269_medium_000;nuscale_0269_medium_001;nuscale_0270_easy_000
+DSRS 9.3.4,RG 1.29,methodology_guidance,5,nuscale_0269_medium_000;nuscale_0269_medium_001;nuscale_0270_easy_000
+DSRS 9.3.4,RG 4.21,methodology_guidance,5,nuscale_0269_medium_000;nuscale_0269_medium_001;nuscale_0270_easy_000
+DSRS 9.3.6 (section fallback),10 CFR Part 50,normative_basis,9,nuscale_0272_easy_000;nuscale_0272_medium_001;nuscale_0272_hard_002
+DSRS 9.3.6 (section fallback),RG 1.29,methodology_guidance,8,nuscale_0272_easy_000;nuscale_0272_medium_001;nuscale_0272_hard_002
+DSRS 9.3.6 (section fallback),SRP 17.5,lateral_cross_reference,1,nuscale_0276_hard_002
+RG 1.100,RG 1.29,lateral_cross_reference,1,nuscale_0126_easy_000
+RG 1.100,SRP 3.7.2,lateral_cross_reference,1,nuscale_0094_hard_002
+RG 1.143,10 CFR Part 50,normative_basis,1,nuscale_0063_medium_001
+RG 1.145,RG 1.23,lateral_cross_reference,1,levy_0350_easy_000
+RG 1.147,RG 1.84,methodology_guidance,1,nuscale_0224_hard_002
+RG 1.183,RG 1.145,methodology_guidance,1,nuscale_0310_hard_002
+RG 1.183,SRP 15.0.3,lateral_cross_reference,5,nuscale_0306_medium_001;nuscale_0307_easy_000;nuscale_0309_easy_000
+RG 1.183,SRP 2.3.4,lateral_cross_reference,1,nuscale_0310_hard_002
+RG 1.198,RG 1.138,lateral_cross_reference,1,levy_0448_easy_000
+RG 1.198,RG 1.138,methodology_guidance,1,levy_0454_easy_000
+RG 1.20,RG 1.100,methodology_guidance,2,nuscale_0088_easy_000;nuscale_0094_easy_000
+RG 1.20,RG 1.61,lateral_cross_reference,1,nuscale_0093_medium_001
+RG 1.20,SRP 13.2.1,lateral_cross_reference,1,nuscale_0090_easy_000
+RG 1.206,10 CFR Part 50,normative_basis,2,levy_0491_medium_000;levy_0491_medium_001
+RG 1.206,RG 1.145,lateral_cross_reference,3,nuscale_0010_easy_000;levy_0355_easy_000;levy_0359_easy_000
+RG 1.206,RG 1.194,lateral_cross_reference,2,nuscale_0010_easy_000;levy_0359_easy_000
+RG 1.206,SRP 2.4.12,lateral_cross_reference,1,levy_0443_easy_000
+RG 1.206,SRP 2.5.1,lateral_cross_reference,1,levy_0439_easy_000
+RG 1.216,RG 1.57,methodology_guidance,3,nuscale_0189_medium_000;nuscale_0189_medium_001;nuscale_0195_medium_000
+RG 1.23,RG 4.21,lateral_cross_reference,1,levy_0345_medium_001
+RG 1.29,RG 1.100,methodology_guidance,5,nuscale_0088_medium_001;nuscale_0091_easy_000;nuscale_0094_medium_001
+RG 1.29,RG 1.143,methodology_guidance,1,nuscale_0272_hard_002
+RG 1.29,RG 1.32,methodology_guidance,1,nuscale_0272_hard_002
+RG 1.29,RG 1.68,lateral_cross_reference,1,nuscale_0089_medium_001
+RG 1.29,RG 1.97,methodology_guidance,1,nuscale_0091_easy_000
+RG 1.29,SRP 13.2.2,lateral_cross_reference,1,nuscale_0257_easy_000
+RG 1.32,RG 1.155,lateral_cross_reference,1,nuscale_0323_easy_000
+RG 1.32,RG 1.61,methodology_guidance,1,nuscale_0233_easy_000
+RG 1.33,RG 1.28,methodology_guidance,1,levy_0493_medium_001
+RG 1.45,RG 1.97,methodology_guidance,1,nuscale_0159_easy_000
+RG 1.57,RG 1.29,methodology_guidance,1,nuscale_0046_medium_001
+RG 1.57,RG 1.84,methodology_guidance,2,nuscale_0046_medium_000;nuscale_0051_easy_000
+RG 1.59,RG 1.143,methodology_guidance,3,levy_0367_easy_000;levy_0368_easy_000;levy_0368_medium_001
+RG 1.59,SRP 13.2.1,lateral_cross_reference,1,levy_0379_medium_001
+RG 1.61,SRP 3.7.2,lateral_cross_reference,2,nuscale_0022_easy_000;nuscale_0033_medium_001
+RG 1.68,10 CFR Part 50,normative_basis,1,nuscale_0212_medium_001
+RG 1.68,RG 1.160,methodology_guidance,2,nuscale_0132_easy_000;nuscale_0135_medium_001
+RG 1.68,RG 1.29,methodology_guidance,1,nuscale_0131_easy_000
+RG 1.84,10 CFR Part 50,normative_basis,1,nuscale_0282_medium_000
+RG 1.84,RG 1.44,methodology_guidance,1,nuscale_0282_medium_000
+RG 1.97,RG 1.100,methodology_guidance,3,nuscale_0126_easy_000;nuscale_0126_hard_002;nuscale_0128_easy_000
+RG 1.97,RG 1.145,methodology_guidance,1,levy_0483_medium_000
+RG 1.97,RG 1.32,methodology_guidance,1,nuscale_0323_easy_000
+RG 1.97,RG 1.53,methodology_guidance,1,nuscale_0126_hard_002
+SRP 10.2,10 CFR Part 50,normative_basis,2,nuscale_0281_easy_000;nuscale_0281_medium_001
+SRP 10.2,RG 1.68,methodology_guidance,2,nuscale_0281_easy_000;nuscale_0281_medium_001
+SRP 10.3.6,10 CFR Part 50,normative_basis,11,nuscale_0283_easy_000;nuscale_0283_medium_001;nuscale_0283_hard_002
+SRP 10.3.6,RG 1.50,methodology_guidance,3,nuscale_0284_easy_000;nuscale_0284_hard_002;nuscale_0287_easy_000
+SRP 10.3.6,RG 1.71,methodology_guidance,7,nuscale_0283_hard_002;nuscale_0284_easy_000;nuscale_0284_hard_002
+SRP 10.3.6,RG 1.84,methodology_guidance,9,nuscale_0282_medium_000;nuscale_0283_hard_002;nuscale_0284_easy_000
+SRP 10.3.6,SRP 5.2.3,lateral_cross_reference,2,nuscale_0282_medium_000;nuscale_0282_medium_001
+SRP 10.4.1,10 CFR Part 50,normative_basis,11,nuscale_0288_easy_000;nuscale_0288_medium_001;nuscale_0288_hard_002
+SRP 10.4.1,SRP 11.3,lateral_cross_reference,8,nuscale_0288_easy_000;nuscale_0288_medium_001;nuscale_0288_hard_002
+SRP 10.4.1,SRP 14.3.10,lateral_cross_reference,3,nuscale_0288_medium_001;nuscale_0290_medium_001;nuscale_0291_medium_001
+SRP 10.4.5,10 CFR Part 50,normative_basis,8,nuscale_0293_easy_000;nuscale_0293_medium_001;nuscale_0293_hard_002
+SRP 10.4.5,SRP 13.2.2,lateral_cross_reference,1,nuscale_0295_medium_001
+SRP 10.4.5,SRP 3.7.1,lateral_cross_reference,2,nuscale_0294_medium_001;nuscale_0295_medium_001
+SRP 10.4.5,SRP 8.3.1,lateral_cross_reference,2,nuscale_0294_medium_001;nuscale_0295_medium_001
+SRP 10.4.6,10 CFR Part 50,normative_basis,2,nuscale_0296_easy_000;levy_0460_easy_000
+SRP 11.2,10 CFR Part 50,normative_basis,6,nuscale_0302_easy_000;nuscale_0302_hard_002;levy_0461_medium_000
+SRP 11.2,RG 1.143,methodology_guidance,7,nuscale_0302_easy_000;nuscale_0302_medium_001;nuscale_0302_hard_002
+SRP 11.2,RG 4.21,methodology_guidance,5,nuscale_0302_easy_000;nuscale_0302_hard_002;levy_0461_medium_001
+SRP 11.2,SRP 10.4.1,lateral_cross_reference,1,levy_0463_medium_001
+SRP 11.2,SRP 2.4.1,lateral_cross_reference,3,levy_0392_easy_000;levy_0406_easy_000;levy_0463_medium_000
+SRP 11.2,SRP 2.4.12,lateral_cross_reference,2,levy_0406_easy_000;levy_0407_easy_000
+SRP 11.2,SRP 3.3.1,lateral_cross_reference,2,nuscale_0302_medium_001;levy_0405_medium_000
+SRP 11.2,SRP 3.4.2,lateral_cross_reference,1,nuscale_0302_medium_001
+SRP 11.2,SRP 3.7.1,lateral_cross_reference,1,nuscale_0302_medium_001
+SRP 11.3,10 CFR Part 50,normative_basis,2,levy_0464_medium_000;levy_0464_medium_001
+SRP 11.3,RG 1.143,methodology_guidance,4,nuscale_0288_easy_000;nuscale_0288_hard_002;nuscale_0289_medium_001
+SRP 11.3,RG 4.21,methodology_guidance,3,nuscale_0288_easy_000;nuscale_0288_hard_002;nuscale_0289_medium_001
+SRP 11.4,10 CFR Part 50,normative_basis,1,levy_0466_easy_000
+SRP 11.4,RG 1.143,methodology_guidance,2,levy_0465_easy_000;levy_0466_easy_000
+SRP 11.4,RG 4.21,methodology_guidance,2,levy_0465_easy_000;levy_0466_easy_000
+SRP 11.4,SRP 11.2,lateral_cross_reference,1,levy_0466_easy_000
+SRP 13.1.1,10 CFR Part 50,normative_basis,16,nuscale_0318_easy_000;nuscale_0318_medium_001;nuscale_0318_hard_002
+SRP 13.1.1,RG 1.206,methodology_guidance,2,levy_0468_easy_000;levy_0471_easy_000
+SRP 13.1.1,RG 1.8,methodology_guidance,15,nuscale_0318_easy_000;nuscale_0318_medium_001;nuscale_0318_hard_002
+SRP 13.1.1,SRP 13.2.1,lateral_cross_reference,5,nuscale_0319_hard_002;levy_0468_easy_000;levy_0469_easy_000
+SRP 13.1.1,SRP 13.3,lateral_cross_reference,1,levy_0469_easy_000
+SRP 13.1.1,SRP 13.5.1,lateral_cross_reference,2,nuscale_0319_hard_002;levy_0470_easy_000
+SRP 13.2.2,10 CFR Part 50,normative_basis,3,nuscale_0320_easy_000;nuscale_0320_medium_001;nuscale_0320_hard_002
+SRP 13.2.2,RG 1.8,methodology_guidance,5,nuscale_0320_easy_000;nuscale_0320_medium_001;nuscale_0320_hard_002
+SRP 13.2.2,SRP 13.2.1,lateral_cross_reference,2,nuscale_0320_medium_001;nuscale_0320_hard_002
+SRP 13.2.2,SRP 13.5.1,lateral_cross_reference,2,nuscale_0224_medium_001;nuscale_0320_hard_002
+SRP 13.3,10 CFR Part 50,normative_basis,31,nuscale_0321_easy_000;nuscale_0322_medium_000;nuscale_0322_medium_001
+SRP 13.3,RG 1.206,methodology_guidance,1,levy_0482_medium_001
+SRP 13.3,RG 1.23,methodology_guidance,2,nuscale_0323_hard_002;levy_0483_medium_000
+SRP 13.3,RG 1.97,methodology_guidance,5,nuscale_0322_medium_000;nuscale_0323_easy_000;nuscale_0323_hard_002
+SRP 13.3,SRP 13.2.2,lateral_cross_reference,2,levy_0486_medium_000;levy_0486_medium_001
+SRP 13.3,SRP 13.6,lateral_cross_reference,1,levy_0484_easy_000
+SRP 13.5.1,10 CFR Part 50,normative_basis,2,levy_0493_easy_000;levy_0493_medium_001
+SRP 13.5.1,RG 1.33,methodology_guidance,2,levy_0493_easy_000;levy_0493_medium_001
+SRP 13.6,10 CFR Part 50,normative_basis,1,levy_0495_easy_000
+SRP 14.2,RG 1.68,methodology_guidance,2,nuscale_0324_easy_000;nuscale_0325_medium_001
+SRP 14.3.10,RG 1.143,methodology_guidance,1,nuscale_0291_medium_001
+SRP 14.3.10,RG 1.206,methodology_guidance,1,nuscale_0288_medium_001
+SRP 15.0.3,RG 1.68,methodology_guidance,1,nuscale_0137_easy_000
+SRP 15.0.3,SRP 2.3.4,lateral_cross_reference,1,nuscale_0309_hard_002
+SRP 15.4.8,SRP 14.2,lateral_cross_reference,1,nuscale_0143_medium_000
+SRP 16.0,10 CFR Part 50,normative_basis,1,nuscale_0216_medium_001
+SRP 17.5,RG 1.28,methodology_guidance,1,nuscale_0073_medium_000
+SRP 19.3,RG 1.61,methodology_guidance,1,nuscale_0237_hard_002
+SRP 19.3,RG 1.8,methodology_guidance,1,nuscale_0278_easy_000
+SRP 19.3,SRP 10.3.6,lateral_cross_reference,2,nuscale_0266_easy_000;nuscale_0266_medium_001
+SRP 19.3,SRP 2.4.1,lateral_cross_reference,1,nuscale_0237_medium_001
+SRP 2.3.1,10 CFR Part 50,normative_basis,38,nuscale_0000_medium_000;nuscale_0000_medium_001;nuscale_0001_easy_000
+SRP 2.3.1,RG 1.206,methodology_guidance,2,nuscale_0006_easy_000;levy_0337_easy_000
+SRP 2.3.1,RG 1.76,methodology_guidance,34,nuscale_0001_easy_000;nuscale_0001_medium_001;nuscale_0001_hard_002
+SRP 2.3.2,10 CFR Part 50,normative_basis,2,levy_0342_medium_000;levy_0342_medium_001
+SRP 2.3.2,RG 1.206,methodology_guidance,2,levy_0342_medium_000;levy_0342_medium_001
+SRP 2.3.2,RG 1.23,methodology_guidance,6,nuscale_0013_easy_000;levy_0342_medium_000;levy_0342_medium_001
+SRP 2.3.2,RG 1.76,methodology_guidance,4,nuscale_0012_medium_001;nuscale_0012_hard_002;nuscale_0014_medium_000
+SRP 2.3.3,10 CFR Part 50,normative_basis,2,levy_0343_easy_000;levy_0345_hard_002
+SRP 2.3.3,RG 1.23,methodology_guidance,8,levy_0343_easy_000;levy_0344_easy_000;levy_0345_easy_000
+SRP 2.3.3,SRP 2.3.4,lateral_cross_reference,2,levy_0347_easy_000;levy_0354_easy_000
+SRP 2.3.3,SRP 2.3.5,lateral_cross_reference,1,levy_0347_easy_000
+SRP 2.3.4,10 CFR Part 50,normative_basis,4,nuscale_0009_easy_000;nuscale_0009_hard_002;levy_0351_easy_000
+SRP 2.3.4,RG 1.145,methodology_guidance,11,nuscale_0009_easy_000;nuscale_0009_medium_001;nuscale_0009_hard_002
+SRP 2.3.4,RG 1.194,methodology_guidance,7,nuscale_0009_medium_001;levy_0350_easy_000;levy_0351_easy_000
+SRP 2.3.4,RG 1.23,methodology_guidance,9,nuscale_0009_easy_000;nuscale_0009_medium_001;nuscale_0009_hard_002
+SRP 2.3.4,RG 1.78,methodology_guidance,7,nuscale_0009_easy_000;nuscale_0009_medium_001;nuscale_0009_hard_002
+SRP 2.3.4,SRP 2.3.3,lateral_cross_reference,1,levy_0353_medium_001
+SRP 2.3.5,10 CFR Part 50,normative_basis,5,nuscale_0010_medium_001;nuscale_0010_hard_002;nuscale_0011_hard_002
+SRP 2.3.5,RG 1.145,lateral_cross_reference,1,levy_0347_easy_000
+SRP 2.3.5,RG 1.206,methodology_guidance,7,nuscale_0010_easy_000;nuscale_0010_hard_002;nuscale_0011_easy_000
+SRP 2.3.5,RG 1.23,methodology_guidance,11,nuscale_0010_easy_000;nuscale_0010_medium_001;nuscale_0010_hard_002
+SRP 2.3.5,SRP 11.3,lateral_cross_reference,2,nuscale_0011_easy_000;levy_0357_easy_000
+SRP 2.3.5,SRP 2.3.3,lateral_cross_reference,4,nuscale_0010_hard_002;nuscale_0011_easy_000;nuscale_0011_hard_002
+SRP 2.4.1,10 CFR Part 50,normative_basis,4,levy_0360_medium_000;levy_0360_medium_001;levy_0361_medium_000
+SRP 2.4.1,RG 1.29,methodology_guidance,4,levy_0360_medium_000;levy_0360_medium_001;levy_0361_medium_000
+SRP 2.4.1,RG 1.59,methodology_guidance,4,levy_0360_medium_000;levy_0360_medium_001;levy_0361_medium_000
+SRP 2.4.1,SRP 3.4.2,lateral_cross_reference,3,levy_0360_medium_000;levy_0360_medium_001;levy_0361_medium_001
+SRP 2.4.12,10 CFR Part 50,normative_basis,36,levy_0388_easy_000;levy_0388_medium_001;levy_0388_hard_002
+SRP 2.4.12,RG 1.29,methodology_guidance,2,nuscale_0019_medium_001;levy_0406_easy_000
+SRP 2.4.12,SRP 2.4.13,lateral_cross_reference,10,levy_0391_medium_001;levy_0392_easy_000;levy_0392_medium_001
+SRP 2.4.13,10 CFR Part 50,normative_basis,5,levy_0403_easy_000;levy_0403_medium_001;levy_0405_medium_000
+SRP 2.4.13,SRP 11.2,lateral_cross_reference,7,levy_0392_easy_000;levy_0403_easy_000;levy_0404_easy_000
+SRP 2.4.2,SRP 2.4.4,lateral_cross_reference,1,levy_0365_easy_000
+SRP 2.4.3,10 CFR Part 50,normative_basis,9,levy_0362_easy_000;levy_0362_medium_001;levy_0363_medium_000
+SRP 2.4.3,RG 1.29,methodology_guidance,6,levy_0362_easy_000;levy_0362_medium_001;levy_0363_medium_000
+SRP 2.4.3,RG 1.59,methodology_guidance,9,levy_0362_easy_000;levy_0362_medium_001;levy_0363_medium_000
+SRP 2.4.3,SRP 2.4.2,lateral_cross_reference,2,levy_0364_medium_001;levy_0365_easy_000
+SRP 2.4.4,10 CFR Part 50,normative_basis,6,levy_0367_easy_000;levy_0367_medium_001;levy_0368_easy_000
+SRP 2.4.4,RG 1.29,methodology_guidance,6,levy_0367_easy_000;levy_0367_medium_001;levy_0368_easy_000
+SRP 2.4.4,RG 1.59,methodology_guidance,6,levy_0367_easy_000;levy_0367_medium_001;levy_0368_easy_000
+SRP 2.4.5,10 CFR Part 50,normative_basis,3,levy_0370_easy_000;levy_0371_easy_000;levy_0371_medium_001
+SRP 2.4.5,RG 1.59,methodology_guidance,2,levy_0370_easy_000;levy_0371_medium_001
+SRP 2.4.5,SRP 2.4.6,lateral_cross_reference,1,levy_0370_easy_000
+SRP 2.4.6,10 CFR Part 50,normative_basis,21,levy_0372_easy_000;levy_0372_medium_001;levy_0373_easy_000
+SRP 2.4.6,RG 1.29,methodology_guidance,15,levy_0372_easy_000;levy_0372_medium_001;levy_0373_hard_002
+SRP 2.4.6,RG 1.59,methodology_guidance,21,levy_0372_easy_000;levy_0372_medium_001;levy_0373_easy_000
+SRP 2.5.1,10 CFR Part 50,normative_basis,11,levy_0408_easy_000;levy_0409_easy_000;levy_0410_easy_000
+SRP 2.5.1,RG 1.206,methodology_guidance,16,levy_0408_easy_000;levy_0409_easy_000;levy_0410_easy_000
+SRP 2.5.1,SRP 2.5.2,lateral_cross_reference,2,levy_0413_easy_000;levy_0419_easy_000
+SRP 2.5.1,SRP 2.5.3,lateral_cross_reference,1,levy_0419_easy_000
+SRP 2.5.2,10 CFR Part 50,normative_basis,12,levy_0374_medium_000;levy_0375_easy_000;levy_0376_medium_000
+SRP 2.5.2,RG 1.138,methodology_guidance,6,nuscale_0036_medium_001;levy_0375_medium_001;levy_0426_easy_000
+SRP 2.5.2,RG 1.198,methodology_guidance,5,levy_0375_medium_001;levy_0426_easy_000;levy_0428_easy_000
+SRP 2.5.2,RG 1.206,methodology_guidance,7,levy_0375_easy_000;levy_0375_medium_001;levy_0378_medium_001
+SRP 2.5.2,SRP 2.4.6,lateral_cross_reference,6,levy_0376_medium_000;levy_0376_medium_001;levy_0377_easy_000
+SRP 2.5.2,SRP 2.5.1,lateral_cross_reference,1,levy_0375_medium_001
+SRP 2.5.2,SRP 3.7.1,lateral_cross_reference,4,nuscale_0032_medium_000;nuscale_0033_medium_000;nuscale_0036_easy_000
+SRP 2.5.3,10 CFR Part 50,normative_basis,6,levy_0433_easy_000;levy_0434_easy_000;levy_0435_easy_000
+SRP 2.5.3,RG 1.206,methodology_guidance,5,levy_0433_easy_000;levy_0435_easy_000;levy_0436_easy_000
+SRP 2.5.3,SRP 2.5.1,lateral_cross_reference,1,levy_0438_easy_000
+SRP 2.5.3,SRP 2.5.2,lateral_cross_reference,2,levy_0433_easy_000;levy_0438_easy_000
+SRP 2.5.4,10 CFR Part 50,normative_basis,14,levy_0440_easy_000;levy_0441_easy_000;levy_0442_easy_000
+SRP 2.5.4,RG 1.138,methodology_guidance,10,levy_0440_easy_000;levy_0441_easy_000;levy_0444_easy_000
+SRP 2.5.4,RG 1.198,methodology_guidance,8,levy_0440_easy_000;levy_0441_easy_000;levy_0447_easy_000
+SRP 2.5.4,RG 1.206,methodology_guidance,2,levy_0441_easy_000;levy_0443_easy_000
+SRP 2.5.4,RG 1.28,methodology_guidance,3,levy_0440_easy_000;levy_0447_easy_000;levy_0452_easy_000
+SRP 2.5.4,SRP 2.5.1,lateral_cross_reference,1,levy_0442_easy_000
+SRP 2.5.4,SRP 2.5.3,lateral_cross_reference,1,levy_0453_easy_000
+SRP 2.5.4,SRP 3.7.1,lateral_cross_reference,1,nuscale_0075_medium_000
+SRP 2.5.4,SRP 3.8.5,lateral_cross_reference,1,levy_0450_easy_000
+SRP 3.12,10 CFR Part 50,normative_basis,4,nuscale_0129_easy_000;nuscale_0130_easy_000;nuscale_0130_medium_001
+SRP 3.12,SRP 3.9.3,lateral_cross_reference,3,nuscale_0130_easy_000;nuscale_0130_medium_001;nuscale_0130_hard_002
+SRP 3.3.1,10 CFR Part 50,normative_basis,10,nuscale_0012_easy_000;nuscale_0012_medium_001;nuscale_0012_hard_002
+SRP 3.3.1,RG 1.206,methodology_guidance,1,nuscale_0012_easy_000
+SRP 3.3.1,SRP 2.3.1,lateral_cross_reference,9,nuscale_0012_easy_000;nuscale_0012_medium_001;nuscale_0012_hard_002
+SRP 3.3.1,SRP 2.3.2,lateral_cross_reference,9,nuscale_0012_easy_000;nuscale_0012_medium_001;nuscale_0012_hard_002
+SRP 3.4.2,10 CFR Part 50,normative_basis,8,nuscale_0015_easy_000;nuscale_0016_easy_000;nuscale_0017_medium_000
+SRP 3.4.2,SRP 14.3.10,lateral_cross_reference,7,nuscale_0015_easy_000;nuscale_0016_easy_000;nuscale_0017_medium_000
+SRP 3.4.2,SRP 2.4.12,lateral_cross_reference,8,nuscale_0015_easy_000;nuscale_0016_easy_000;nuscale_0017_medium_000
+SRP 3.4.2,SRP 2.4.3,lateral_cross_reference,8,nuscale_0015_easy_000;nuscale_0016_easy_000;nuscale_0017_medium_000
+SRP 3.5.2,10 CFR Part 50,normative_basis,5,nuscale_0020_easy_000;nuscale_0020_medium_001;nuscale_0021_easy_000
+SRP 3.5.2,RG 1.138,methodology_guidance,2,nuscale_0020_medium_001;nuscale_0021_medium_001
+SRP 3.7.1,10 CFR Part 50,normative_basis,10,nuscale_0022_easy_000;nuscale_0022_medium_001;nuscale_0023_easy_000
+SRP 3.7.1,RG 1.61,methodology_guidance,1,nuscale_0022_easy_000
+SRP 3.7.1,SRP 2.5.2,lateral_cross_reference,9,nuscale_0023_easy_000;nuscale_0023_medium_001;nuscale_0023_hard_002
+SRP 3.7.1,SRP 2.5.4,lateral_cross_reference,1,levy_0457_easy_000
+SRP 3.7.1,SRP 3.7.2,lateral_cross_reference,3,nuscale_0023_medium_001;nuscale_0024_hard_002;levy_0457_easy_000
+SRP 3.7.2,10 CFR Part 50,normative_basis,3,nuscale_0073_medium_001;nuscale_0075_medium_001;nuscale_0076_medium_000
+SRP 3.7.2,RG 1.138,methodology_guidance,3,nuscale_0023_medium_001;nuscale_0075_medium_001;nuscale_0076_medium_000
+SRP 3.7.2,SRP 3.7.1,lateral_cross_reference,1,nuscale_0070_medium_000
+SRP 3.8.5,10 CFR Part 50,normative_basis,24,nuscale_0068_medium_000;nuscale_0068_medium_001;nuscale_0069_medium_000
+SRP 3.8.5,RG 1.206,methodology_guidance,17,nuscale_0068_medium_000;nuscale_0068_medium_001;nuscale_0069_medium_000
+SRP 3.8.5,SRP 13.2.1,lateral_cross_reference,1,nuscale_0068_medium_001
+SRP 3.8.5,SRP 13.2.2,lateral_cross_reference,2,nuscale_0068_medium_001;nuscale_0073_medium_000
+SRP 3.8.5,SRP 17.5,lateral_cross_reference,1,nuscale_0073_medium_000
+SRP 3.8.5,SRP 2.5.1,lateral_cross_reference,3,nuscale_0071_medium_000;nuscale_0078_medium_000;nuscale_0078_medium_001
+SRP 3.8.5,SRP 2.5.2,lateral_cross_reference,1,nuscale_0078_medium_000
+SRP 3.8.5,SRP 2.5.4,lateral_cross_reference,5,nuscale_0068_medium_000;nuscale_0075_medium_000;nuscale_0075_medium_001
+SRP 3.8.5,SRP 3.7.1,lateral_cross_reference,11,nuscale_0069_medium_000;nuscale_0069_medium_001;nuscale_0071_medium_000
+SRP 3.8.5,SRP 3.7.2,lateral_cross_reference,20,nuscale_0035_medium_001;nuscale_0069_medium_000;nuscale_0069_medium_001
+SRP 3.9.1,10 CFR Part 50,normative_basis,7,nuscale_0083_easy_000;nuscale_0084_easy_000;nuscale_0084_medium_001
+SRP 3.9.1,RG 1.71,methodology_guidance,1,nuscale_0052_easy_000
+SRP 3.9.1,RG 1.84,lateral_cross_reference,1,nuscale_0051_medium_001
+SRP 3.9.1,SRP 3.7.2,lateral_cross_reference,1,nuscale_0084_medium_001
+SRP 3.9.1,SRP 3.9.3,lateral_cross_reference,7,nuscale_0083_easy_000;nuscale_0084_easy_000;nuscale_0084_medium_001
+SRP 3.9.2,10 CFR Part 50,normative_basis,20,nuscale_0088_easy_000;nuscale_0088_medium_001;nuscale_0089_medium_000
+SRP 3.9.2,RG 1.20,methodology_guidance,21,nuscale_0088_easy_000;nuscale_0088_medium_001;nuscale_0089_medium_000
+SRP 3.9.2,RG 1.29,methodology_guidance,18,nuscale_0053_medium_001;nuscale_0088_easy_000;nuscale_0088_medium_001
+SRP 3.9.3,10 CFR Part 50,normative_basis,3,nuscale_0099_medium_000;nuscale_0100_medium_000;nuscale_0100_medium_001
+SRP 3.9.3,RG 1.20,methodology_guidance,1,nuscale_0104_medium_000
+SRP 3.9.3,SRP 3.9.2,lateral_cross_reference,1,nuscale_0100_medium_000
+SRP 3.9.5,10 CFR Part 50,normative_basis,16,nuscale_0102_easy_000;nuscale_0102_medium_001;nuscale_0103_easy_000
+SRP 3.9.5,RG 1.20,methodology_guidance,6,nuscale_0102_easy_000;nuscale_0102_medium_001;nuscale_0104_medium_001
+SRP 3.9.5,RG 1.206,methodology_guidance,1,nuscale_0112_easy_000
+SRP 3.9.5,SRP 3.9.2,lateral_cross_reference,12,nuscale_0102_easy_000;nuscale_0102_medium_001;nuscale_0103_easy_000
+SRP 3.9.5,SRP 3.9.3,lateral_cross_reference,16,nuscale_0102_easy_000;nuscale_0102_medium_001;nuscale_0103_easy_000
+SRP 4.6,10 CFR Part 50,normative_basis,4,nuscale_0136_easy_000;nuscale_0137_easy_000;nuscale_0137_medium_001
+SRP 4.6,SRP 14.2,lateral_cross_reference,1,nuscale_0137_easy_000
+SRP 4.6,SRP 15.0.3,lateral_cross_reference,1,nuscale_0137_easy_000
+SRP 5.2.3,10 CFR Part 50,normative_basis,40,nuscale_0138_easy_000;nuscale_0138_medium_001;nuscale_0138_hard_002
+SRP 5.2.3,RG 1.36,methodology_guidance,1,nuscale_0142_hard_002
+SRP 5.2.3,RG 1.44,methodology_guidance,17,nuscale_0138_easy_000;nuscale_0138_medium_001;nuscale_0138_hard_002
+SRP 5.2.3,RG 1.50,methodology_guidance,23,nuscale_0138_easy_000;nuscale_0139_easy_000;nuscale_0139_medium_001
+SRP 5.2.3,RG 1.71,methodology_guidance,12,nuscale_0139_medium_001;nuscale_0147_medium_001;nuscale_0147_hard_002
+SRP 5.2.3,RG 1.84,methodology_guidance,19,nuscale_0138_easy_000;nuscale_0138_medium_001;nuscale_0138_hard_002
+SRP 5.2.3,SRP 15.4.8,lateral_cross_reference,1,nuscale_0143_medium_000
+SRP 6.4,10 CFR Part 50,normative_basis,23,nuscale_0213_easy_000;nuscale_0213_medium_001;nuscale_0213_hard_002
+SRP 6.4,RG 1.183,methodology_guidance,13,nuscale_0213_easy_000;nuscale_0213_medium_001;nuscale_0213_hard_002
+SRP 6.4,RG 1.78,methodology_guidance,20,nuscale_0213_easy_000;nuscale_0213_medium_001;nuscale_0213_hard_002
+SRP 6.4,SRP 16.0,lateral_cross_reference,2,nuscale_0216_medium_000;nuscale_0216_medium_001
+SRP 8.1,10 CFR Part 50,normative_basis,5,nuscale_0225_medium_001;nuscale_0225_hard_002;nuscale_0226_easy_000
+SRP 8.2,10 CFR Part 50,normative_basis,13,nuscale_0227_easy_000;nuscale_0228_easy_000;nuscale_0228_medium_001
+SRP 8.2,RG 1.155,methodology_guidance,9,nuscale_0227_easy_000;nuscale_0228_easy_000;nuscale_0228_medium_001
+SRP 8.2,RG 1.160,methodology_guidance,12,nuscale_0227_easy_000;nuscale_0228_easy_000;nuscale_0228_medium_001
+SRP 8.2,RG 1.32,methodology_guidance,8,nuscale_0227_easy_000;nuscale_0228_easy_000;nuscale_0228_medium_001
+SRP 9.1.1,10 CFR Part 50,normative_basis,25,nuscale_0239_easy_000;nuscale_0240_medium_000;nuscale_0240_medium_001
+SRP 9.1.1,SRP 14.3.10,lateral_cross_reference,1,nuscale_0248_easy_000
+SRP 9.1.2,10 CFR Part 50,normative_basis,6,nuscale_0252_easy_000;nuscale_0252_medium_001;nuscale_0252_hard_002
+SRP 9.1.2,RG 1.138,methodology_guidance,1,nuscale_0252_medium_001
+SRP 9.1.2,RG 1.29,methodology_guidance,1,nuscale_0253_hard_002
+SRP 9.1.3,10 CFR Part 50,normative_basis,12,nuscale_0254_easy_000;nuscale_0254_medium_001;nuscale_0254_hard_002
+SRP 9.1.3,RG 1.138,methodology_guidance,1,nuscale_0254_easy_000
+SRP 9.1.3,RG 1.26,methodology_guidance,12,nuscale_0254_easy_000;nuscale_0254_medium_001;nuscale_0254_hard_002
+SRP 9.1.3,RG 1.29,methodology_guidance,12,nuscale_0254_easy_000;nuscale_0254_medium_001;nuscale_0254_hard_002
+SRP 9.1.3,SRP 3.7.1,lateral_cross_reference,2,nuscale_0254_medium_001;nuscale_0255_easy_000
+SRP 9.2.6,10 CFR Part 50,normative_basis,7,nuscale_0260_easy_000;nuscale_0260_medium_001;nuscale_0260_hard_002
+SRP 9.2.6,RG 1.143,methodology_guidance,6,nuscale_0260_medium_001;nuscale_0260_hard_002;nuscale_0261_easy_000
+SRP 9.2.6,RG 1.155,methodology_guidance,2,nuscale_0261_easy_000;nuscale_0262_easy_000
+SRP 9.2.6,RG 1.29,methodology_guidance,3,nuscale_0260_easy_000;nuscale_0260_hard_002;nuscale_0262_easy_000
+SRP 9.2.6,RG 1.59,methodology_guidance,1,nuscale_0260_easy_000
+SRP 9.2.7,10 CFR Part 50,normative_basis,7,nuscale_0263_medium_000;nuscale_0263_medium_001;nuscale_0264_medium_000
+SRP 9.2.7,RG 1.155,methodology_guidance,3,nuscale_0263_medium_001;nuscale_0264_medium_000;nuscale_0264_medium_001
+SRP 9.2.7,RG 1.206,methodology_guidance,1,nuscale_0265_medium_001
+SRP 9.2.7,RG 1.28,methodology_guidance,3,nuscale_0263_medium_001;nuscale_0264_medium_000;nuscale_0264_medium_001
+SRP 9.2.7,RG 1.29,methodology_guidance,5,nuscale_0263_medium_001;nuscale_0264_medium_000;nuscale_0264_medium_001
+SRP 9.2.7,SRP 13.2.1,lateral_cross_reference,2,nuscale_0265_easy_000;nuscale_0265_medium_001
+SRP 9.2.7,SRP 13.2.2,lateral_cross_reference,2,nuscale_0265_easy_000;nuscale_0265_medium_001
+SRP 9.2.7,SRP 14.3.10,lateral_cross_reference,2,nuscale_0265_easy_000;nuscale_0265_medium_001
+SRP 9.2.7,SRP 19.3,lateral_cross_reference,3,nuscale_0265_easy_000;nuscale_0266_easy_000;nuscale_0266_medium_001
+SRP 9.3.3,10 CFR Part 50,normative_basis,4,nuscale_0267_medium_000;nuscale_0267_medium_001;nuscale_0268_medium_000
+SRP 9.5.2,10 CFR Part 50,normative_basis,1,nuscale_0277_easy_000

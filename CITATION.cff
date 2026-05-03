@@ -1,0 +1,65 @@
+cff-version: 1.2.0
+message: "If you use NuReg-XDoc in your research, please cite the dataset and the accompanying paper."
+type: dataset
+title: "NuReg-XDoc: A Cross-Doctype Regulatory QA Benchmark with Document-Grounded Reasoning Paths for KG-Augmented RAG"
+abstract: >-
+  NuReg-XDoc is a benchmark for cross-document, cross-doctype reasoning
+  over the U.S. nuclear regulatory hierarchy. It pairs a corpus of
+  regulatory PDFs spanning multiple doctypes with a typed inter-document
+  reference graph and 938 review queries derived from NRC RAI documents,
+  each annotated with document-prescribed evidence chains. The dataset
+  enables path- and order-aware retrieval metrics such as Path Recall@k
+  and Ordered Prefix Recall.
+authors:
+  - family-names: Kim
+    given-names: Bokyeong
+    orcid: "https://orcid.org/0009-0006-6936-4584"
+    affiliation: "Korea Atomic Energy Research Institute and University of Science and Technology"
+    email: "qhrud61@kaeri.re.kr"
+  - family-names: Lee
+    given-names: Hyewon
+    orcid: "https://orcid.org/0009-0003-9573-2916"
+    affiliation: "Korea Atomic Energy Research Institute"
+    email: "hyewon@kaeri.re.kr"
+  - family-names: Yu
+    given-names: Yonggyun
+    orcid: "https://orcid.org/0000-0003-2863-9650"
+    affiliation: "Korea Atomic Energy Research Institute and University of Science and Technology"
+    email: "ygyu@kaeri.re.kr"
+version: "1.0.0"
+date-released: "2026-05-03"
+license: CC-BY-4.0
+license-url: "https://creativecommons.org/licenses/by/4.0/"
+repository-code: "https://github.com/kimmbk/NuReg-XDoc"
+url: "https://doi.org/10.5281/zenodo.19915566"
+keywords:
+  - regulatory question answering
+  - cross-document reasoning
+  - cross-doctype reasoning
+  - knowledge graph
+  - retrieval-augmented generation
+  - benchmark
+  - evidence chains
+  - nuclear safety
+  - NRC
+  - RAI
+preferred-citation:
+  type: conference-paper
+  title: "NuReg-XDoc: A Cross-Doctype Regulatory QA Benchmark with Document-Grounded Reasoning Paths for KG-Augmented RAG"
+  authors:
+    - family-names: Kim
+      given-names: Bokyeong
+      orcid: "https://orcid.org/0009-0006-6936-4584"
+    - family-names: Lee
+      given-names: Hyewon
+      orcid: "https://orcid.org/0009-0003-9573-2916"
+    - family-names: Yu
+      given-names: Yonggyun
+      orcid: "https://orcid.org/0000-0003-2863-9650"
+  conference:
+    name: "International Semantic Web Conference (ISWC)"
+  year: 2026
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.19915566"
+    description: "Zenodo deposit DOI"

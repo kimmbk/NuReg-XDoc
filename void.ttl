@@ -1,0 +1,139 @@
+@prefix void:    <http://rdfs.org/ns/void#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix dcat:    <http://www.w3.org/ns/dcat#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix cc:      <http://creativecommons.org/ns#> .
+@prefix rrg:     <https://regrag.org/ontology#> .
+@prefix :        <https://regrag.org/dataset/nureg-xdoc#> .
+
+#-------------------------------------------------------------------
+# VoID dataset description for the NuReg-XDoc reference graph (v1.0.0)
+#-------------------------------------------------------------------
+
+:NuRegXDocGraph a void:Dataset , dcat:Dataset ;
+    dcterms:title       "NuReg-XDoc Document-Level Reference Graph (v1.0.0)"@en ;
+    dcterms:description "A document-level RDF/OWL knowledge graph over the U.S. nuclear regulatory hierarchy. Nodes are regulatory documents (10 CFR, SRP, DSRS, RG); edges are typed inter-document references (normative_basis, methodology_guidance, lateral_cross_reference) induced from document-prescribed evidence chains in the NuReg-XDoc benchmark."@en ;
+    dcterms:creator     [ a foaf:Person ;
+                          foaf:name "Bokyeong Kim" ;
+                          foaf:homepage <https://orcid.org/0009-0006-6936-4584> ] ,
+                        [ a foaf:Person ;
+                          foaf:name "Hyewon Lee" ;
+                          foaf:homepage <https://orcid.org/0009-0003-9573-2916> ] ,
+                        [ a foaf:Person ;
+                          foaf:name "Yonggyun Yu" ;
+                          foaf:homepage <https://orcid.org/0000-0003-2863-9650> ] ;
+    dcterms:publisher   [ a foaf:Organization ; foaf:name "Zenodo" ] ;
+    dcterms:issued      "2026-05-03"^^xsd:date ;
+    dcterms:modified    "2026-05-03"^^xsd:date ;
+    dcterms:license     <https://creativecommons.org/licenses/by/4.0/> ;
+    cc:license          <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:identifier  "10.5281/zenodo.19915566" ;
+    dcterms:hasVersion  "1.0.0" ;
+    dcterms:source      <https://www.nrc.gov/> ;
+    dcterms:subject     "regulatory question answering" ,
+                        "knowledge graph" ,
+                        "retrieval-augmented generation" ,
+                        "nuclear safety" ;
+    void:feature        <http://www.w3.org/TR/turtle/> ;
+    void:vocabulary     <https://regrag.org/ontology#> ,
+                        <http://www.w3.org/2002/07/owl#> ,
+                        <http://www.w3.org/1999/02/22-rdf-syntax-ns#> ,
+                        <http://www.w3.org/2000/01/rdf-schema#> ;
+    void:exampleResource <https://regrag.org/doc/SRP_2-3-1> ;
+    void:dataDump       <graph/nureg-xdoc-graph.ttl> .
+
+#-------------------------------------------------------------------
+# Distributions (DCAT)
+#-------------------------------------------------------------------
+
+:NuRegXDocGraph dcat:distribution :OntologyTTL , :InstancesTTL , :GraphTTL , :NodesCSV , :EdgesCSV .
+
+:OntologyTTL a dcat:Distribution ;
+    dcterms:title       "OWL ontology (Turtle)"@en ;
+    dcat:downloadURL    <graph/nureg-xdoc-ontology.ttl> ;
+    dcat:mediaType      "text/turtle" ;
+    dcat:byteSize       "3696"^^xsd:nonNegativeInteger .
+
+:InstancesTTL a dcat:Distribution ;
+    dcterms:title       "RDF instances (Turtle)"@en ;
+    dcat:downloadURL    <graph/nureg-xdoc-instances.ttl> ;
+    dcat:mediaType      "text/turtle" ;
+    dcat:byteSize       "94617"^^xsd:nonNegativeInteger .
+
+:GraphTTL a dcat:Distribution ;
+    dcterms:title       "Merged ontology and instances (Turtle)"@en ;
+    dcat:downloadURL    <graph/nureg-xdoc-graph.ttl> ;
+    dcat:mediaType      "text/turtle" ;
+    dcat:byteSize       "95100"^^xsd:nonNegativeInteger .
+
+:NodesCSV a dcat:Distribution ;
+    dcterms:title       "Node dump (CSV)"@en ;
+    dcat:downloadURL    <graph/nureg-xdoc-nodes.csv> ;
+    dcat:mediaType      "text/csv" ;
+    dcat:byteSize       "3431"^^xsd:nonNegativeInteger .
+
+:EdgesCSV a dcat:Distribution ;
+    dcterms:title       "Edge dump (CSV)"@en ;
+    dcat:downloadURL    <graph/nureg-xdoc-edges.csv> ;
+    dcat:mediaType      "text/csv" ;
+    dcat:byteSize       "37985"^^xsd:nonNegativeInteger .
+
+#-------------------------------------------------------------------
+# VoID statistics
+#-------------------------------------------------------------------
+
+:NuRegXDocGraph void:triples            "2173"^^xsd:nonNegativeInteger ;
+                void:entities           "135"^^xsd:nonNegativeInteger ;
+                void:classes            "1"^^xsd:nonNegativeInteger ;
+                void:properties         "5"^^xsd:nonNegativeInteger ;
+                void:distinctSubjects   "135"^^xsd:nonNegativeInteger ;
+                void:distinctObjects    "135"^^xsd:nonNegativeInteger .
+
+#-------------------------------------------------------------------
+# Class partition
+#-------------------------------------------------------------------
+
+:NuRegXDocGraph void:classPartition [
+    void:class      rrg:RegulatoryDocument ;
+    void:entities   "135"^^xsd:nonNegativeInteger
+] .
+
+#-------------------------------------------------------------------
+# Property partitions (chain-occurrence weight = sum of rrg:weight)
+#-------------------------------------------------------------------
+
+:NuRegXDocGraph void:propertyPartition [
+    void:property   rrg:normativeBasis ;
+    void:triples    "873"^^xsd:nonNegativeInteger ;
+    rdfs:comment    "Normative basis edges (chain-occurrence weight). 84 distinct directed edges."@en
+] , [
+    void:property   rrg:methodologyGuidance ;
+    void:triples    "897"^^xsd:nonNegativeInteger ;
+    rdfs:comment    "Methodology guidance edges (chain-occurrence weight). 160 distinct directed edges."@en
+] , [
+    void:property   rrg:lateralCrossReference ;
+    void:triples    "403"^^xsd:nonNegativeInteger ;
+    rdfs:comment    "Lateral cross-reference edges (chain-occurrence weight). 148 distinct directed edges."@en
+] , [
+    void:property   rrg:docType ;
+    void:triples    "135"^^xsd:nonNegativeInteger
+] , [
+    void:property   rrg:queryCount ;
+    void:triples    "135"^^xsd:nonNegativeInteger
+] .
+
+#-------------------------------------------------------------------
+# Provenance link to the source benchmark
+#-------------------------------------------------------------------
+
+:NuRegXDocGraph prov:wasDerivedFrom :NuRegXDocBenchmark .
+
+:NuRegXDocBenchmark a dcat:Dataset ;
+    dcterms:title       "NuReg-XDoc Benchmark Queries (v1.0.0)"@en ;
+    dcterms:identifier  "data/nureg-xdoc-queries.json" ;
+    dcterms:license     <https://creativecommons.org/licenses/by/4.0/> .
