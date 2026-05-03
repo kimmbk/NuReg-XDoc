@@ -11,7 +11,7 @@ Reasoning Paths for KG-Augmented RAG.
 | Code repository | https://github.com/kimmbk/NuReg-XDoc |
 | Authors | Bokyeong Kim, Hyewon Lee, Yonggyun Yu (Corresponding) |
 | Data license | CC BY 4.0 (see `LICENSE-DATA`) |
-| Code license | MIT (see `LICENSE-CODE`) |
+| Code license | MIT (see `LICENSE`) |
 
 ## Overview
 
@@ -39,7 +39,7 @@ construct task-specific train/dev/test splits as needed.
 NuReg-XDoc-1.0.0/
 ├── README.md                              # this file
 ├── LICENSE-DATA                           # CC BY 4.0
-├── LICENSE-CODE                           # MIT
+├── LICENSE                           # MIT
 ├── CITATION.cff                           # canonical citation
 ├── DATA_SOURCES.md                        # NRC source URLs and copyright
 ├── croissant.json                         # Croissant ML metadata (dataset)
