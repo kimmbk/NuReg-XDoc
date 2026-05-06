@@ -1,37 +1,37 @@
 doc_id,doc_type,query_count,out_degree_weighted,in_degree_weighted
 10 CFR Part 50,10CFR,878,18,873
-DSRS 10.2.3 (section fallback),DSRS,4,7,0
+DSRS 10.2.3,DSRS,4,7,0
 DSRS 11.1,DSRS,15,16,0
 DSRS 11.2,DSRS,1,1,1
 DSRS 12.2,DSRS,39,85,0
 DSRS 14.2,DSRS,5,2,5
-DSRS 15.1.5 (section fallback),DSRS,3,10,0
-DSRS 15.2.6 (section fallback),DSRS,8,20,0
-DSRS 15.2.7 (section fallback),DSRS,2,6,0
-DSRS 15.2.8 (section fallback),DSRS,6,13,0
+DSRS 15.1.5,DSRS,3,10,0
+DSRS 15.2.6,DSRS,8,20,0
+DSRS 15.2.7,DSRS,2,6,0
+DSRS 15.2.8,DSRS,6,13,0
 DSRS 3.11,DSRS,35,47,3
 DSRS 3.7.1,DSRS,20,2,20
 DSRS 3.7.2,DSRS,32,72,0
-DSRS 3.8.2 (section fallback),DSRS,24,51,0
+DSRS 3.8.2,DSRS,24,51,0
 DSRS 3.8.4,DSRS,41,51,9
 DSRS 3.8.5,DSRS,7,0,7
-DSRS 4.4 (section fallback),DSRS,14,19,8
-DSRS 5.2.4 (section fallback),DSRS,14,24,0
-DSRS 5.2.5 (section fallback),DSRS,2,6,0
-DSRS 5.3.1 (section fallback),DSRS,8,17,1
-DSRS 5.4.7 (section fallback),DSRS,11,23,0
-DSRS 6.2.1 (section fallback),DSRS,8,12,0
-DSRS 6.2.2 (section fallback),DSRS,13,26,0
+DSRS 4.4,DSRS,14,19,8
+DSRS 5.2.4,DSRS,14,24,0
+DSRS 5.2.5,DSRS,2,6,0
+DSRS 5.3.1,DSRS,8,17,1
+DSRS 5.4.7,DSRS,11,23,0
+DSRS 6.2.1,DSRS,8,12,0
+DSRS 6.2.2,DSRS,13,26,0
 DSRS 6.2.4,DSRS,14,31,1
-DSRS 6.2.5 (section fallback),DSRS,17,30,0
-DSRS 6.2.6 (section fallback),DSRS,29,57,0
-DSRS 6.3 (section fallback),DSRS,3,5,1
-DSRS 6.6 (section fallback),DSRS,3,7,0
-DSRS 8.1 (section fallback),DSRS,1,0,1
-DSRS 8.3.2 (section fallback),DSRS,7,12,0
+DSRS 6.2.5,DSRS,17,30,0
+DSRS 6.2.6,DSRS,29,57,0
+DSRS 6.3,DSRS,3,5,1
+DSRS 6.6,DSRS,3,7,0
+DSRS 8.1,DSRS,1,0,1
+DSRS 8.3.2,DSRS,7,12,0
 DSRS 8.4,DSRS,6,17,0
 DSRS 9.3.4,DSRS,6,22,0
-DSRS 9.3.6 (section fallback),DSRS,9,18,0
+DSRS 9.3.6,DSRS,9,18,0
 RG 1.100,RG,10,2,10
 RG 1.138,RG,25,0,25
 RG 1.143,RG,52,1,52

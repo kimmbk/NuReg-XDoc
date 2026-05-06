@@ -7,10 +7,19 @@
     "conformsTo": "dct:conformsTo",
     "cr": "http://mlcommons.org/croissant/",
     "rai": "http://mlcommons.org/croissant/RAI/",
-    "data": {"@id": "cr:data", "@type": "@json"},
-    "dataType": {"@id": "cr:dataType", "@type": "@vocab"},
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
     "dct": "http://purl.org/dc/terms/",
-    "examples": {"@id": "cr:examples", "@type": "@json"},
+    "examples": {
+      "@id": "cr:examples",
+      "@type": "@json"
+    },
     "extract": "cr:extract",
     "field": "cr:field",
     "fileProperty": "cr:fileProperty",
@@ -43,7 +52,7 @@
   "conformsTo": "http://mlcommons.org/croissant/1.0",
   "description": "NuReg-XDoc is a benchmark for cross-document, cross-doctype question answering over the U.S. nuclear regulatory hierarchy. It pairs a corpus of regulatory PDFs (10 CFR, SRP, DSRS, RG) with a typed inter-document reference graph and 938 review queries derived from NRC Requests for Additional Information (RAI), each annotated with document-prescribed evidence chains and a three-valued reference-type taxonomy (normative_basis, methodology_guidance, lateral_cross_reference).",
   "version": "1.0.0",
-  "datePublished": "2026-05-03",
+  "datePublished": "2026-05-07",
   "license": "https://creativecommons.org/licenses/by/4.0/",
   "url": "https://doi.org/10.5281/zenodo.19915566",
   "citeAs": "Kim, B., Lee, H., & Yu, Y. (2026). NuReg-XDoc: A Cross-Doctype Regulatory QA Benchmark with Document-Grounded Reasoning Paths for KG-Augmented RAG (v1.0.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.19915566",
@@ -118,7 +127,7 @@
       "contentUrl": "data/nureg-xdoc-queries.json",
       "encodingFormat": "application/json",
       "contentSize": "10085585 B",
-      "sha256": "ebfa31f3de3937679355bb49c5a24b598cc1dc48578f9b2a7324c12ab29fe3d9"
+      "sha256": "9c3ccb55ed7c12e11e34ccb8fdf8534abfd90e76c8e6ecef1f1d07252ae87650"
     },
     {
       "@type": "cr:FileObject",
@@ -138,7 +147,7 @@
       "contentUrl": "graph/nureg-xdoc-instances.ttl",
       "encodingFormat": "text/turtle",
       "contentSize": "94621 B",
-      "sha256": "809cfbd8fc01e419e1b7d5989cb34d01d9eab4b4e53336a87b524a8609adad37"
+      "sha256": "fb1dc8f3d782f29dd997e62785d1b1bc131ee7decb59f01b5af3a64827c30cd5"
     },
     {
       "@type": "cr:FileObject",
@@ -148,7 +157,7 @@
       "contentUrl": "graph/nureg-xdoc-graph.ttl",
       "encodingFormat": "text/turtle",
       "contentSize": "98317 B",
-      "sha256": "9bdec060ad985be7c251012c43140a4f596ff70fc988367797606cb6b3b85852"
+      "sha256": "408201f1124569b033a32621ec22628d942eb455118ee0628fe12e0afe66cf0e"
     },
     {
       "@type": "cr:FileObject",
@@ -158,7 +167,7 @@
       "contentUrl": "graph/nureg-xdoc-nodes.csv",
       "encodingFormat": "text/csv",
       "contentSize": "3431 B",
-      "sha256": "9c5558eefaed5ed3c119803c5e44d85642be38aeae30f966231b5ae4aea8385d"
+      "sha256": "8715ee38d7320b3b8e133ee45ac14a8aab1c8e19d55b0ae788336aaae9030d5b"
     },
     {
       "@type": "cr:FileObject",
@@ -168,7 +177,7 @@
       "contentUrl": "graph/nureg-xdoc-edges.csv",
       "encodingFormat": "text/csv",
       "contentSize": "37985 B",
-      "sha256": "496b41ce2c72b09aabf6dea12d345c512b164319b1368da931a0a9e63e8388a0"
+      "sha256": "4a5f60e3614319427e53e953c6156bb7e3ca5cc38c43e3fa68a39b2c03c93fa5"
     },
     {
       "@type": "cr:FileObject",
@@ -178,7 +187,28 @@
       "contentUrl": "graph/nureg-xdoc-cooccurrence-edges.csv",
       "encodingFormat": "text/csv",
       "contentSize": "17136 B",
-      "sha256": "86d32842bbbcb9c1da5e06d1a2cb69694d268f4befe5980dde2e715db6fbf962"
+      "sha256": "39da6c5177e67619d937c988b34783d8b1725722afe7b5b3addd142ac3662cda"
+    },
+    {
+      "@type": "cr:FileObject",
+      "name": "evidence_documents.csv",
+      "contentUrl": "data/corpus_manifest/evidence_documents.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "8c82459431dc89aa70baeb82cbb07dfde5cb374e64a17442586d47464cf11207"
+    },
+    {
+      "@type": "cr:FileObject",
+      "name": "distractor_documents.csv",
+      "contentUrl": "data/corpus_manifest/distractor_documents.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "87f1425e109ada6e3483bbe5fb59e0d1b8edbae0eadba6be07b5be7536268fcd"
+    },
+    {
+      "@type": "cr:FileObject",
+      "name": "README.md",
+      "contentUrl": "data/corpus_manifest/README.md",
+      "encodingFormat": "text/markdown",
+      "sha256": "24911b2ed9c231c49b25dda989194362852fa01a973e3ebcb1dd935b7c9e7955"
     }
   ],
   "recordSet": [
@@ -195,8 +225,12 @@
           "description": "Unique identifier of the query, format: {source}_{rai_index}_{difficulty}_{within_rai_index}.",
           "dataType": "sc:Text",
           "source": {
-            "fileObject": {"@id": "nureg-xdoc-queries.json"},
-            "extract": {"jsonPath": "$.data[*].query_id"}
+            "fileObject": {
+              "@id": "nureg-xdoc-queries.json"
+            },
+            "extract": {
+              "jsonPath": "$.data[*].query_id"
+            }
           }
         },
         {
@@ -206,8 +240,12 @@
           "description": "Natural-language question.",
           "dataType": "sc:Text",
           "source": {
-            "fileObject": {"@id": "nureg-xdoc-queries.json"},
-            "extract": {"jsonPath": "$.data[*].query"}
+            "fileObject": {
+              "@id": "nureg-xdoc-queries.json"
+            },
+            "extract": {
+              "jsonPath": "$.data[*].query"
+            }
           }
         },
         {
@@ -217,8 +255,12 @@
           "description": "Reference answer.",
           "dataType": "sc:Text",
           "source": {
-            "fileObject": {"@id": "nureg-xdoc-queries.json"},
-            "extract": {"jsonPath": "$.data[*].answer"}
+            "fileObject": {
+              "@id": "nureg-xdoc-queries.json"
+            },
+            "extract": {
+              "jsonPath": "$.data[*].answer"
+            }
           }
         },
         {
@@ -228,8 +270,12 @@
           "description": "Difficulty level of the query.",
           "dataType": "sc:Text",
           "source": {
-            "fileObject": {"@id": "nureg-xdoc-queries.json"},
-            "extract": {"jsonPath": "$.data[*].difficulty"}
+            "fileObject": {
+              "@id": "nureg-xdoc-queries.json"
+            },
+            "extract": {
+              "jsonPath": "$.data[*].difficulty"
+            }
           }
         },
         {
@@ -239,8 +285,12 @@
           "description": "Question type: bridge, comparison, single_doc_factoid, regulatory_chain.",
           "dataType": "sc:Text",
           "source": {
-            "fileObject": {"@id": "nureg-xdoc-queries.json"},
-            "extract": {"jsonPath": "$.data[*].question_type"}
+            "fileObject": {
+              "@id": "nureg-xdoc-queries.json"
+            },
+            "extract": {
+              "jsonPath": "$.data[*].question_type"
+            }
           }
         },
         {
@@ -250,8 +300,12 @@
           "description": "Number of reference transitions in the evidence chain.",
           "dataType": "sc:Integer",
           "source": {
-            "fileObject": {"@id": "nureg-xdoc-queries.json"},
-            "extract": {"jsonPath": "$.data[*].n_hops"}
+            "fileObject": {
+              "@id": "nureg-xdoc-queries.json"
+            },
+            "extract": {
+              "jsonPath": "$.data[*].n_hops"
+            }
           }
         },
         {
@@ -261,8 +315,12 @@
           "description": "LLM-judge faithfulness score on a 0 to 5 scale.",
           "dataType": "sc:Float",
           "source": {
-            "fileObject": {"@id": "nureg-xdoc-queries.json"},
-            "extract": {"jsonPath": "$.data[*].judge_score"}
+            "fileObject": {
+              "@id": "nureg-xdoc-queries.json"
+            },
+            "extract": {
+              "jsonPath": "$.data[*].judge_score"
+            }
           }
         },
         {
@@ -272,8 +330,12 @@
           "description": "Pipeline judge verdict: pass or fail.",
           "dataType": "sc:Text",
           "source": {
-            "fileObject": {"@id": "nureg-xdoc-queries.json"},
-            "extract": {"jsonPath": "$.data[*].judge_verdict"}
+            "fileObject": {
+              "@id": "nureg-xdoc-queries.json"
+            },
+            "extract": {
+              "jsonPath": "$.data[*].judge_verdict"
+            }
           }
         },
         {
@@ -283,8 +345,12 @@
           "description": "Source RAI docket: nuscale or levy.",
           "dataType": "sc:Text",
           "source": {
-            "fileObject": {"@id": "nureg-xdoc-queries.json"},
-            "extract": {"jsonPath": "$.data[*].metadata.source"}
+            "fileObject": {
+              "@id": "nureg-xdoc-queries.json"
+            },
+            "extract": {
+              "jsonPath": "$.data[*].metadata.source"
+            }
           }
         },
         {
@@ -295,8 +361,12 @@
           "dataType": "sc:StructuredValue",
           "repeated": true,
           "source": {
-            "fileObject": {"@id": "nureg-xdoc-queries.json"},
-            "extract": {"jsonPath": "$.data[*].evidence_chain"}
+            "fileObject": {
+              "@id": "nureg-xdoc-queries.json"
+            },
+            "extract": {
+              "jsonPath": "$.data[*].evidence_chain"
+            }
           }
         }
       ]
@@ -306,7 +376,9 @@
       "@id": "chain_elements",
       "name": "chain_elements",
       "description": "Per-element fields inside evidence_chain (the supporting fact F_j of the paper).",
-      "key": {"@id": "chain_elements/element_id"},
+      "key": {
+        "@id": "chain_elements/element_id"
+      },
       "field": [
         {
           "@type": "cr:Field",
@@ -315,8 +387,12 @@
           "description": "Position in the evidence chain (0-indexed).",
           "dataType": "sc:Integer",
           "source": {
-            "fileObject": {"@id": "nureg-xdoc-queries.json"},
-            "extract": {"jsonPath": "$.data[*].evidence_chain[*].hop"}
+            "fileObject": {
+              "@id": "nureg-xdoc-queries.json"
+            },
+            "extract": {
+              "jsonPath": "$.data[*].evidence_chain[*].hop"
+            }
           }
         },
         {
@@ -326,8 +402,12 @@
           "description": "Canonical document identifier.",
           "dataType": "sc:Text",
           "source": {
-            "fileObject": {"@id": "nureg-xdoc-queries.json"},
-            "extract": {"jsonPath": "$.data[*].evidence_chain[*].doc_id"}
+            "fileObject": {
+              "@id": "nureg-xdoc-queries.json"
+            },
+            "extract": {
+              "jsonPath": "$.data[*].evidence_chain[*].doc_id"
+            }
           }
         },
         {
@@ -337,8 +417,12 @@
           "description": "Document type: 10CFR, SRP, DSRS, or RG.",
           "dataType": "sc:Text",
           "source": {
-            "fileObject": {"@id": "nureg-xdoc-queries.json"},
-            "extract": {"jsonPath": "$.data[*].evidence_chain[*].doc_type"}
+            "fileObject": {
+              "@id": "nureg-xdoc-queries.json"
+            },
+            "extract": {
+              "jsonPath": "$.data[*].evidence_chain[*].doc_type"
+            }
           }
         },
         {
@@ -348,8 +432,12 @@
           "description": "Section/clause anchor inside doc_id where evidence_text is located.",
           "dataType": "sc:Text",
           "source": {
-            "fileObject": {"@id": "nureg-xdoc-queries.json"},
-            "extract": {"jsonPath": "$.data[*].evidence_chain[*].section"}
+            "fileObject": {
+              "@id": "nureg-xdoc-queries.json"
+            },
+            "extract": {
+              "jsonPath": "$.data[*].evidence_chain[*].section"
+            }
           }
         },
         {
@@ -359,8 +447,12 @@
           "description": "Verbatim cited passage (the verbatim passage p_i of the paper).",
           "dataType": "sc:Text",
           "source": {
-            "fileObject": {"@id": "nureg-xdoc-queries.json"},
-            "extract": {"jsonPath": "$.data[*].evidence_chain[*].evidence_text"}
+            "fileObject": {
+              "@id": "nureg-xdoc-queries.json"
+            },
+            "extract": {
+              "jsonPath": "$.data[*].evidence_chain[*].evidence_text"
+            }
           }
         },
         {
@@ -370,8 +462,12 @@
           "description": "Functional role of this element in the chain.",
           "dataType": "sc:Text",
           "source": {
-            "fileObject": {"@id": "nureg-xdoc-queries.json"},
-            "extract": {"jsonPath": "$.data[*].evidence_chain[*].role"}
+            "fileObject": {
+              "@id": "nureg-xdoc-queries.json"
+            },
+            "extract": {
+              "jsonPath": "$.data[*].evidence_chain[*].role"
+            }
           }
         },
         {
@@ -381,8 +477,12 @@
           "description": "Reasoning step description.",
           "dataType": "sc:Text",
           "source": {
-            "fileObject": {"@id": "nureg-xdoc-queries.json"},
-            "extract": {"jsonPath": "$.data[*].evidence_chain[*].action"}
+            "fileObject": {
+              "@id": "nureg-xdoc-queries.json"
+            },
+            "extract": {
+              "jsonPath": "$.data[*].evidence_chain[*].action"
+            }
           }
         },
         {
@@ -392,8 +492,12 @@
           "description": "Transition type into this element: normative_basis, methodology_guidance, lateral_cross_reference, or null for hop 0.",
           "dataType": "sc:Text",
           "source": {
-            "fileObject": {"@id": "nureg-xdoc-queries.json"},
-            "extract": {"jsonPath": "$.data[*].evidence_chain[*].reference_type"}
+            "fileObject": {
+              "@id": "nureg-xdoc-queries.json"
+            },
+            "extract": {
+              "jsonPath": "$.data[*].evidence_chain[*].reference_type"
+            }
           }
         },
         {
@@ -403,11 +507,16 @@
           "description": "Whether the passage references a table.",
           "dataType": "sc:Boolean",
           "source": {
-            "fileObject": {"@id": "nureg-xdoc-queries.json"},
-            "extract": {"jsonPath": "$.data[*].evidence_chain[*].has_table_reference"}
+            "fileObject": {
+              "@id": "nureg-xdoc-queries.json"
+            },
+            "extract": {
+              "jsonPath": "$.data[*].evidence_chain[*].has_table_reference"
+            }
           }
         }
       ]
     }
-  ]
+  ],
+  "identifier": "https://doi.org/10.5281/zenodo.19915566"
 }

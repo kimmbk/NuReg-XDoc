@@ -27,7 +27,7 @@ authors:
     affiliation: "Korea Atomic Energy Research Institute and University of Science and Technology"
     email: "ygyu@kaeri.re.kr"
 version: "1.0.0"
-date-released: "2026-05-03"
+date-released: "2026-05-07"
 license: CC-BY-4.0
 license-url: "https://creativecommons.org/licenses/by/4.0/"
 repository-code: "https://github.com/kimmbk/NuReg-XDoc"

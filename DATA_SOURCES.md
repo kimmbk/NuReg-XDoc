@@ -7,19 +7,29 @@ under 17 U.S.C. § 105.
 
 ## Document corpus
 
-The corpus comprises 961 PDFs across four document types in the
-U.S. nuclear regulatory hierarchy.
+The benchmark distinguishes three document layers, each used at a
+different stage of construction. They are not the same set.
 
-| Document type | Count | Description |
-|---|---|---|
+| Layer | Count | Description |
+|---|---:|---|
+| Full crawl (5 doctypes) | 961 | Internal preprocessing pool used during pipeline development. Includes Federal Register amendments. Not released as a corpus. |
+| Released corpus (4 doctypes) | 200 | 156 evidence + 44 distractor documents covering 10 CFR, SRP, DSRS, RG. Used as the retrieval target in paper §3.1 (Table 3). |
+| Reference-graph nodes | 135 | Subset of the 156 evidence documents that participates in at least one of the 938 released evidence chains. The remaining 21 evidence documents were cited by an RAI but did not yield a chain edge. |
+
+Per-doctype document occurrences (the number of times each doctype
+appears across the 938 query records) are listed below. These are
+occurrence counts, not deduplicated document counts.
+
+| Document type | Occurrences | Description |
+|---|---:|---|
 | 10 CFR | 878 | Code of Federal Regulations, Title 10 (Energy) |
 | SRP | 907 | Standard Review Plan (NUREG-0800) |
 | DSRS | 407 | Design-Specific Review Standard |
 | RG | 919 | Regulatory Guide |
 
-Counts above reflect document occurrences across the 938 query
-records; the corpus contains 135 unique documents and 79 unique
-sections after deduplication.
+After deduplication the released corpus contains 200 documents and
+the reference graph contains 135 unique document nodes (79 unique
+sections).
 
 ## Query source
 
