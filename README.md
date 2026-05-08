@@ -294,25 +294,3 @@ copyright status are in `DATA_SOURCES.md`. The 938 queries trace to
 pipeline (an initial pool of 991 RAIs is reduced to 509 by Phase 1
 filtering; subsequent rewrite, issue split, chain extraction, and
 judge filtering produce the released set).
-
-## Changelog
-
-### v1.0.0 (2026-05-07)
-
-Initial public release for ISWC 2026 Resources Track submission.
-
-- README: split the prior "Hop depth" table into two distinct
-  measures, `chain_length` (1-5) and `n_hops` (0-3), to match the
-  paper's Table 5(b) "Hop depth" column without ambiguity.
-- README: extended the reference-type taxonomy table with both
-  `Distinct edges` (matching `nureg-xdoc-edges.csv`, 392 rows)
-  and `Chain occurrences` (matching `void.ttl`, 2,173 total).
-- README: clarified that the 135 reference-graph nodes are a
-  subset of the 200-document released corpus.
-- README: added a one-line note on ontology IRI use as a stable
-  identifier (the namespace is not dereferenceable; the canonical
-  Turtle file is the deposit's `graph/nureg-xdoc-ontology.ttl`).
-- DATA_SOURCES: replaced the prior single corpus table with a
-  three-layer hierarchy table (full crawl 961 / released corpus
-  200 / reference-graph nodes 135), and relabelled the doctype
-  table column from "Count" to "Occurrences".
